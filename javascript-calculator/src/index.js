@@ -3,7 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux";
+import { createStore } from 'redux';
 
+// const reducer = (state = 0, action) => {
+//     switch (action.type) {
+//         case "ADD":
+            
+//             return {...state+action.preValue}
+//         case "SUB":
+//             return {...state-action.newValue}
+//         case "MUL":
+//             return {...state}
+//         case "DIV":
+//             return {}
+//         case "CLEAR":
+//             return {}
+//         case "EQUAL":
+//         default:
+//             return state
+//     }
+// }
+// const store = createStore();
+// ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
