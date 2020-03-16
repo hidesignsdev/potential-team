@@ -1,34 +1,46 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {newQuote} from './actions';
+import quotes from './quotes.json';
 import "./styles.css";
 import { FaQuoteLeft, FaTwitter } from "react-icons/fa";
 
-const quoteDefault =
-  "It’s your place in the world; it’s your life. Go on and do all you can with it, and make it the life you want to live.";
-const authorDefault = "Oprah Winfrey";
-class RandomQuote extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quote: quoteDefault, //for quote
-      author: authorDefault //for author
-    };
+
+
+  class RandomQuote extends Component {
+  // use componentDidMount to get data
+  componentDidMount(){
+      this.props.dispatch(newQuote(this.getQuote()))
+  }
+  //get random quote
+  getQuote(){
+    return quotes[Math.floor(Math.random()*quotes.length)]
+  } 
+  //get new quote funtion to click button
+  getNewQuote=()=>{
+    this.props.dispatch(newQuote(this.getQuote()))
   }
 
   render() {
     return (
-      <div className="page">
-        <h1 className="title">Random Quote App</h1>
+      <div id='wrapper'>
         <div id="quote-box">
-          <div id="text"><FaQuoteLeft /> {this.state.quote}</div>
-          <div id="author">-{this.state.author}</div>
-              <a id="tweet-quote"  href="https://twitter.com/intent/tweet" title="Tweet this quote!" target="_blank">
+          <div id="text"><FaQuoteLeft /> {this.props.quote.quote}</div>
+          <div id="author"><p>{this.props.quote.author}</p></div>
+              <a id="tweet-quote"  href={`https://twitter.com/intent/tweet?text=${this.props.quote.quote || ''}`} title="Tweet this quote!" >
                 <FaTwitter />
               </a>
-            <button id="new-quote">New quote</button>
+              <div>
+                <button id='new-quote' className='buttons' onClick={this.getNewQuote}>New Quote</button>
+            </div>
         </div>
       </div>
     );
   }
 }
-
-export default RandomQuote;
+const mapStateToProps =(state)=>{
+  return {
+    quote: state.quoteGenerate
+  }
+}
+export default connect(mapStateToProps)(RandomQuote)
