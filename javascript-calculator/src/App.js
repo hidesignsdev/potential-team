@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { connect } from "react-redux";
+//import { connect } from "react-redux";
 
 export default class App extends Component {
   constructor(props) {
@@ -10,53 +10,58 @@ export default class App extends Component {
       valueTyping: ""
     }
   }
+
+
   calculate(inputDisplay) {
-    const {valueTyping} = this.state;
+    const { valueTyping } = this.state;
     if (valueTyping.includes('--')) {
+      /*translate -- = + 
+      EX: --3 = 3*/
       inputDisplay = valueTyping.replace('--', '+');
     }
     let arrayOperation = ['+', '-', 'x', '/', '.'];
     while (arrayOperation.includes(inputDisplay.slice(-1))) {
       inputDisplay = inputDisplay.slice(0, -1);
     }
-    this.setState({ result: eval(inputDisplay) || "" + "" })
+    this.setState({ result: eval(inputDisplay) })
+    console.log(this.state.result)
   }
-  reset(){
+  reset() {
     this.setState({ valueTyping: "", result: 0 });
   }
-  backspace(){
-    const {valueTyping} = this.state;
+  backspace() {
+    const { valueTyping } = this.state;
     this.setState({ valueTyping: valueTyping.slice(0, -1) })
   }
   enterValue = (event) => {
     const { valueTyping, result } = this.state;
-    if (result != 0) {
+    if (result !== 0) {
       this.reset();
     }
 
     let valueButton = event.target.value;
-    
-    if (valueButton == "=") {
+
+    if (valueButton === "=") {
       this.calculate(valueTyping);
     }
-    else if (valueButton == "C") { //backspace
+    else if (valueButton === "C") { //backspace
       this.backspace();
     }
-    else if (valueButton == "AC") { //reset
+    else if (valueButton === "AC") { //reset
       this.reset();
     }
     else {
-      this.setState({valueTyping: valueTyping + valueButton});
+      this.setState({ valueTyping: valueTyping + valueButton });
     }
-    
+
   }
   render() {
-    const {valueTyping, result} = this.state;
+    const { valueTyping, result } = this.state;
     return (
       <div className="page">
         <div className="calculator">
           <div className="formulaScreen">{valueTyping}</div>
-          <div id="display">{result}</div>
+          <div id="display">{result || 0}</div>
           <button id="allclear" value="AC" className="standardItem" onClick={this.enterValue}>AC</button>
           <button id="clear" value="C" className="standardItem" onClick={this.enterValue}>C</button>
           <button id="divide" value="/" className="operation standardItem" onClick={this.enterValue}>/</button>
