@@ -33,6 +33,9 @@
 .formulaScreen{
   text-align: right;
   max-width: 320px;
+  width: 100%;
+  height: 45px;
+  /* overflow: scroll; */
 }
 .outputScreen{
   width: 100%;
