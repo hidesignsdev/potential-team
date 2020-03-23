@@ -4,11 +4,6 @@ import { connect } from "react-redux";
 import { numberInput, operatorInput, decimalInput, calculate, clear } from '../actions'
 
 
-//some problem
-/*
-- enter number will made height of input screen change
-*/
-
 class App extends Component {
 
   handleNumberInput = (e) => {
