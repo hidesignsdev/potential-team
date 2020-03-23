@@ -1,0 +1,64 @@
+
+#wrapper{
+  background-color: rgb(22, 160, 133);
+  height: 100vh;
+  text-align: center;
+}
+.title{
+  padding-top: 30px;
+  color: #fff;
+}
+h1{
+  margin: auto;
+}
+#quote-box{
+  display: inline-block;
+  width: 30%;
+  min-width: 450px;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 3px;
+  margin-top: 15%;
+}
+#text{
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  font-family: 'Raleway';
+}
+#author{
+  text-align: right;
+  margin-top: 20px;
+}
+#new-quote{
+  background-color: rgb(44, 62, 80);
+  float: right;
+  height: 38px;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 8px 18px;
+  margin-top: 30px;
+  color: #fff;
+  font-weight: 500;
+}
+#tweet-quote{
+  background-color: rgb(44, 62, 80);
+  height: 22px;
+  border-radius: 3px;
+  font-size: 20px;
+  padding: 8px 10px;
+  color: #fff;
+  float: left;
+  margin-top: 30px;
+}
+#new-quote{
+  background-color: rgb(44, 62, 80);
+  height: 38px;
+  float: right;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 8px 18px;
+  margin-top: 30px;
+  color: #fff;
+  font-weight: 500;
+}
