@@ -27,7 +27,7 @@ const calculateReducer = (prevState = initState, action) => {
                     equation = prevState.equation + action.payload
                 }
             };
-            return { display, equation }
+            return {...prevState, display, equation }
         case OPERATOR_INPUT:
             if (prevState.equation.includes("=")) {
                 let value = prevState.display;
@@ -70,7 +70,7 @@ const calculateReducer = (prevState = initState, action) => {
                     equation = value
                 }
             }
-            return { prevState, display, equation }
+            return { ...prevState, display, equation }
         case DECIMAL_INPUT:
             if (prevState.equation === "" || prevState.equation.includes("=")) {
                 let value = "0."
@@ -84,7 +84,7 @@ const calculateReducer = (prevState = initState, action) => {
                 equation = prevState.equation + action.payload
                 display = prevState.display + action.payload
             }
-            return { prevState, display, equation }
+            return { ...prevState, display, equation }
         case CALCULATE:
             if (prevState.equation.includes("=")) {
                 const value = `${prevState.display} = ${prevState.display}`;
@@ -97,6 +97,7 @@ const calculateReducer = (prevState = initState, action) => {
                 let value = prevState.equation;
                 value += ` = ${display}`;
                 return {
+                    ...prevState,
                     display: String(display),
                     equation: value
                 };
@@ -104,6 +105,7 @@ const calculateReducer = (prevState = initState, action) => {
             break;
         case CLEAR:
             return {
+                ...prevState,
                 display: '0',
                 equation: ""
             }
