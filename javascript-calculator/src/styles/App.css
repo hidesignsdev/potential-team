@@ -1,0 +1,60 @@
+
+.page{
+  background-color: rgb(22, 160, 133);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+}
+.calculator{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 350px;
+  background: black;
+  border-radius: 3px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+.number{
+  background: #4d4d4d;
+  color: white;
+  width: 80px;
+  padding: 10px;
+}
+.operation{
+  background-color: rgb(102, 102, 102);
+  color: white;
+  width: 80px;
+  padding: 10px;
+}
+.formulaScreen{
+  text-align: right;
+  max-width: 320px;
+  width: 100%;
+  height: 45px;
+  /* overflow: scroll; */
+}
+.outputScreen{
+  width: 100%;
+  padding-top:  20px;
+  text-align: right;
+  padding-right: 10px;
+  font-family: digital;
+}
+#clear{
+  background-color: yellow;
+  width: 240px;
+}
+#equals{
+  background-color: rgb(0, 68, 102);
+  width: 80px;
+  flex-wrap: nowrap;
+}
+
+#zero{
+  width:160px
+}
+
