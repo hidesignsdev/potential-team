@@ -10,7 +10,7 @@ const newQuoteReducer=(preState=initState,action)=>{
     switch(action.type){
         case NEW_QUOTE:
             console.log(action)
-            const {quote ,author} = action.quote
+            const {quote ,author} = action.payload
             return { quote,author }
         default:
             return preState;
