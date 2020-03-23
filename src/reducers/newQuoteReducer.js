@@ -11,7 +11,7 @@ const newQuoteReducer=(preState=initState,action)=>{
         case NEW_QUOTE:
             console.log(action)
             const {quote ,author} = action.payload
-            return { quote,author }
+            return {...preState, quote,author }
         default:
             return preState;
     }
