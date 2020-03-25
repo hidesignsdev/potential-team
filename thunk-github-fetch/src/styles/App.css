@@ -42,3 +42,10 @@
   align-items: center;
   /* text-align: center; */
 }
+
+.loading{
+  text-align: center;
+}
+.error{
+  text-align: center;
+}

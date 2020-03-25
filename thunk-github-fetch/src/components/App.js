@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from './actions';
-import './App.css';
+import { fetchData } from '../actions';
+import '../styles/App.css';
 import UserPage from './UserPage';
 
 class App extends React.Component {
@@ -31,8 +31,8 @@ class App extends React.Component {
             onChange={this.enterURL} />
           <button className="btn btn-primary search-button" onClick={this.handleClick}>Search</button>
         </div>
-        {this.props.appData.isFetching ? <h3>Loading...</h3>: null}
-        {this.props.appData.error ? <h3>No such User exists</h3>: null}
+        {this.props.appData.isFetching ? <h3 className="loading">Loading...</h3>: null}
+        {this.props.appData.error ? <h3 className="error">User doesn't exists</h3>: null}
         <UserPage user={this.props.appData.data}/>
       </div>
     )
