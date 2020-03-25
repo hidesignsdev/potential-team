@@ -8,7 +8,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       url: "",
-      result: ""
     }
   }
   handleClick = () => {
@@ -29,7 +28,7 @@ class App extends React.Component {
           <div style={{ backgroundColor: 'yellow', height: 300, width: 800 }}>
             
             {
-            this.state.result
+            this.props.appData.data
             }
           </div>
         </div>
