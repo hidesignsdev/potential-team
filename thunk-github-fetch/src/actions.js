@@ -13,11 +13,15 @@ export const fetchData = (url) => {
     return (dispatch) => {
         dispatch(getData())
         fetch(url)
-        .then(res => {
-            return res.json()
-        })
-        .then((data) => {
-            dispatch(getDataSuccess(data))
-        }).catch((err) => console.log('err: ', err))
+            .then(res => {
+                return res.json()
+            })
+            .then((data) => {
+                dispatch(getDataSuccess(data))
+            }).catch((err) => {
+                dispatch(getDataFailure());
+                console.log('err: ', err)
+            }
+            )
     }
 }

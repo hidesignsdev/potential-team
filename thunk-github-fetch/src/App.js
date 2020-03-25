@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchData } from './actions';
 import './App.css';
+import UserPage from './UserPage';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,21 +16,24 @@ class App extends React.Component {
   handleClick(){
     const {url} = this.state;
     this.props.fetchData(url);
-    console.log(this.props.appData.data, "Data")
 
   }
   enterURL = (event) => {
+    if(this.props)
     this.setState({ url: event.target.value })
   }
   render() {
     return (
       <div className="container">
         <div className="wrapper" >
-          <img className="logo" src="./Octicons-mark-github.svg" alt="" />
+          <img className="logo" src="./Octicons-mark-github.svg" alt="" onClick= {() => window.location.reload(false)}/>
           <input className="input-style" type="text" placeholder="Enter url account github"
             onChange={this.enterURL} />
           <button className="btn btn-primary search-button" onClick={this.handleClick}>Search</button>
         </div>
+        {this.props.appData.isFetching ? <h3>Loading...</h3>: null}
+        {this.props.appData.error ? <h3>No such User exists</h3>: null}
+        <UserPage user={this.props.appData.data}/>
       </div>
     )
   }

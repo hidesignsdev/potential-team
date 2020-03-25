@@ -1,5 +1,5 @@
 .container {
-  margin-top: 20%;
+  margin-top: 10%;
 }
 .wrapper {
   display: flex;
@@ -33,4 +33,12 @@
 }
 .search-button{
   margin-top: 10px;
+}
+.user-info{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+  /* text-align: center; */
 }

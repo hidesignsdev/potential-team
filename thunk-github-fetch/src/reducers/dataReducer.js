@@ -12,7 +12,7 @@ const dataReducer = (state = initialState, action) => {
         case FETCHING_DATA:
             return { ...state, data: {}, isFetching: true }
         case FETCHING_DATA_SUCCESS:
-            return { ...state, isFetching: false, data: action.data }
+            return { ...state, isFetching: false, data: action.data, error: false}
         case FETCHING_DATA_FAILURE:
             return { ...state, isFetching: false, error: true }
 
