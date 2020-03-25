@@ -9,9 +9,13 @@ class App extends React.Component {
     this.state = {
       url: "",
     }
+    this.enterURL = this.enterURL.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-  handleClick = () => {
-    this.props.fetchData(this.state.url);
+  handleClick(){
+    const {url} = this.state;
+    this.props.fetchData(url);
+    console.log(this.props.appData.data, "Data")
 
   }
   enterURL = (event) => {
@@ -23,31 +27,9 @@ class App extends React.Component {
         <div className="wrapper" >
           <img className="logo" src="./Octicons-mark-github.svg" alt="" />
           <input className="input-style" type="text" placeholder="Enter url account github"
-            onChange={() => this.enterURL} />
-          <button className="btn btn-primary search-button" onClick={() => this.handleClick}>Search</button>
-          <div style={{ backgroundColor: 'yellow', height: 300, width: 800 }}>
-            
-            {
-            this.props.appData.data
-            }
-          </div>
+            onChange={this.enterURL} />
+          <button className="btn btn-primary search-button" onClick={this.handleClick}>Search</button>
         </div>
-
-
-        {/* <div className="button" onClick={() => this.props.fetchData()}>
-          <div className="buttonText">
-            {this.props.appData.isFetching} <div>Loading</div>
-            {
-              this.props.appData.data.length ? (this.props.appData.data.map((person, i) => {
-                return <div key={i}>
-                  <div>Name: {person.name}</div>
-                  <div>Age: {person.age}</div>
-                </div>
-              })
-              ) : null
-            }
-          </div>
-        </div> */}
       </div>
     )
   }
@@ -56,6 +38,6 @@ const mapStateToProps = (state) => {
   return { appData: state.appData }
 }
 const mapDispatchToProps = (dispatch) => {
-  return { fetchData: () => dispatch(fetchData()) }
+  return { fetchData: (url) => dispatch(fetchData(url)) }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App)

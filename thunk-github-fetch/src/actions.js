@@ -6,13 +6,17 @@ export const getData = () => {
 export const getDataSuccess = (data) => {
     return { type: FETCHING_DATA_SUCCESS, data }
 }
-export const getDataFailure = () =>{
-    return{type: FETCHING_DATA_FAILURE}
+export const getDataFailure = () => {
+    return { type: FETCHING_DATA_FAILURE }
 }
 export const fetchData = (url) => {
-    return (dispatch) =>{
+    return (dispatch) => {
         dispatch(getData())
-        fetch(url).then((data)=>{
+        fetch(url)
+        .then(res => {
+            return res.json()
+        })
+        .then((data) => {
             dispatch(getDataSuccess(data))
         }).catch((err) => console.log('err: ', err))
     }
