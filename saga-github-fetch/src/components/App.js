@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from '../actions';
+import { getData } from '../actions/index';
 import '../styles/App.css';
 import UserPage from './UserPage';
 import _ from "lodash";
@@ -14,11 +14,10 @@ class App extends React.Component {
     this.enterURL = this.enterURL.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(){
+  handleClick = () =>{
     const {url} = this.state;
-    console.log(this.props.appData.data, "before")
-    this.props.fetchData(url);
-    console.log(this.props.appData.data, "alo")
+    this.props.getData(url);
+    console.log(this.props.appData, "dataaaaa")
 
   }
   enterURL = (event) => {
@@ -45,6 +44,6 @@ const mapStateToProps = (state) => {
   return { appData: state.appData }
 }
 const mapDispatchToProps = (dispatch) => {
-  return { fetchData: (url) => dispatch(fetchData(url)) }
+  return { getData: (url) => dispatch(getData(url)) }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App)
