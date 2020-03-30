@@ -3,6 +3,7 @@ import InputField from "./InputField";
 
 class PersonalInfo extends React.Component {
     render() {
+        //test user commit
         return (
             <div className="container-login">
                 <h3>{"Personal Information"}</h3>
