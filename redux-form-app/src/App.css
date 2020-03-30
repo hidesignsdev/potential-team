@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.input-style {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+input {
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.btn {
+  margin-top: 10px;
+  flex: 1;
+}
+.login-form {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-sign-up{
+  display:flex;
+  align-self: center;
+}
+.container-login{
+  display: flex;
+  flex-direction: column;
+}
