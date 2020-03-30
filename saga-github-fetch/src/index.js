@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import {Provider} from "react-redux";
-import {configureStore, sagaMiddleware} from "./configureStore";
+import { Provider } from "react-redux";
+import { configureStore, sagaMiddleware } from "./configureStore";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import rootSaga from "./sagas/rootSaga";
+import rootSaga from "./sagas/fetchSagas";
 
 const store = configureStore();
 ReactDOM.render(
-  <Provider store = {store}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')

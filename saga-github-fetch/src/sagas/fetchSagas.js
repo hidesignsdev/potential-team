@@ -1,19 +1,26 @@
-import { put, takeEvery, call } from "redux-saga/effects";
-import fetchUserfromApi from "../fetchUserfromApi";
-import { FETCHING_DATA, getDataFailure, getDataSuccess } from "../actions/index";
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from "../actions";
+import { call, put, takeEvery } from "redux-saga/effects";
 
-function* fetchData(action) {
-    
+
+async function fetchDatafromApi(url) {
+    const res = await fetch(url);
+    const data = await res.json()
+    return data;
+}
+
+function* getData(action) {
+    console.log("This is fetch data saga");
     try {
-        console.log(action, "immmm")
-        const data = yield call(fetchUserfromApi(action.payload))
-        yield put(getDataSuccess(data))
+        const data = yield call(fetchDatafromApi, action.payload.url)
+        console.log(data)
+        yield put({ type: FETCHING_DATA_SUCCESS, payload: { data } })
     }
     catch (err) {
-        yield put(getDataFailure)
+        yield put({ FETCHING_DATA_FAILURE })
+        console.log(err)
     }
 }
 
-export function* watchFetchData() {
-    yield takeEvery(FETCHING_DATA, fetchData);
+export default function* watchGetData() {
+    yield takeEvery(FETCHING_DATA, getData)
 }
