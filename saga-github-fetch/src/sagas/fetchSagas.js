@@ -1,17 +1,12 @@
 import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from "../actions";
 import { call, put, takeEvery } from "redux-saga/effects";
+import * as api from '../api'
 
-
-async function fetchDatafromApi(url) {
-    const res = await fetch(url);
-    const data = await res.json()
-    return data;
-}
 
 function* getData(action) {
     console.log("This is fetch data saga");
     try {
-        const data = yield call(fetchDatafromApi, action.payload.url)
+        const { data } = yield call(api.getUsers, action.payload.url)
         console.log(data)
         yield put({ type: FETCHING_DATA_SUCCESS, payload: { data } })
     }
