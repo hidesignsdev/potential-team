@@ -4,28 +4,14 @@
   justify-content: center;
   height: 100vh;
 }
-.input-style {
+.login-form {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-}
-input {
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  padding: 3px 8px;
-  border-radius: 5px;
-  font-size: 14px;
 }
 .btn {
   margin-top: 10px;
   flex: 1;
-}
-.login-form {
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  
 }
 .logo {
   display: flex;
@@ -39,4 +25,11 @@ input {
 .container-login{
   display: flex;
   flex-direction: column;
+}
+input{
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 3px 8px;
+  border-radius: 5px;
 }

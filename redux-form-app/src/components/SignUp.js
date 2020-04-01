@@ -1,5 +1,4 @@
 import React from "react";
-import InputField from "./InputField";
 
 class SignUp extends React.Component {
     render() {
@@ -10,11 +9,11 @@ class SignUp extends React.Component {
                         <img src="./logo.png" alt="" />
                     </div>
 
-                    <InputField type="text" placeholder="Enter your first name" label="First name" />
+                    {/* <InputField type="text" placeholder="Enter your first name" label="First name" />
                     <InputField type="text" placeholder="Enter your last name" label="Last name" />
                     <InputField type="email" placeholder="ex: c2ctechhub@gmail.com" label="Email" />
                     <InputField type="password" placeholder="Enter your password" label="Password" />
-                    <InputField type="password" placeholder="Re enter your password" label="Confirm in your password" />
+                    <InputField type="password" placeholder="Re enter your password" label="Confirm in your password" /> */}
                     <button className="btn btn-primary">Sign Up</button>
                 </div>
                 <div className="link-sign-up">
