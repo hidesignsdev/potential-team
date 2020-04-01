@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getData } from '../actions';
+import { getData } from '../actions/index';
 import '../styles/App.css';
 import UserPage from './UserPage';
 import _ from "lodash";

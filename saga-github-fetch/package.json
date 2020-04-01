@@ -6,8 +6,11 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+<<<<<<< HEAD
     "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
+=======
+>>>>>>> 2ac5bea129ef0de3f3f21575865a415f07fb604e
     "bootstrap": "^4.4.1",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
