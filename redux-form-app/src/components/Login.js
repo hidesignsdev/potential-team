@@ -2,6 +2,9 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 
 class Login extends React.Component {
+    submit = values => {
+        console.log(values)
+    }
     render() {
         const { handleSubmit } = this.props;
         return (

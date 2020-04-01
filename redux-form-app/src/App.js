@@ -1,6 +1,8 @@
 import React from 'react';
-import Login from "./components/Login";
 import "./App.css";
+
+
+import Login from './components/Login';
 import SignUp from './components/SignUp';
 import PersonalInfo from './components/PersonalInfo';
 import Congratulations from './components/Congratulations';

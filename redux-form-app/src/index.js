@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
-import store from "./configureStore";
+// import store from "./configureStore";
+import { createStore, combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
+
+const rootReducer = combineReducers({ form: formReducer })
+const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(rootReducer)
 
 ReactDOM.render(
-  <Provider store = {store}>
+  <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  ,
   document.getElementById('root')
 );
 
