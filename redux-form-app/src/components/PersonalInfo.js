@@ -1,22 +1,14 @@
 import React from "react";
-import InputField from "./InputField";
+import PersonalForm from '../form/PersonalForm'
 
 class PersonalInfo extends React.Component {
+    submit = values => {
+        console.log(values)
+    }
     render() {
         //test user commit
         return (
-            <div className="container-login">
-                <h3>{"Personal Information"}</h3>
-                <div className="login-form">
-                    <div className="logo">
-                        <img src="./logo.png" alt="" />
-                    </div>
-
-                    <InputField type="text" placeholder="ex: c2ctechhub@gmail.com" label="Email" />
-                    <InputField type="date" placeholder="" label="Birthday" />
-                    <button className="btn btn-primary">Next</button>
-                </div>
-            </div>
+            <PersonalForm onSubmit={this.submit} />
         );
     }
 }
