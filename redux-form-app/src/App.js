@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./App.css";
 
-
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import PersonalInfo from './components/PersonalInfo';
@@ -11,7 +10,6 @@ import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom"
 import history from "./History"
 
 export default class App extends Component {
-
   render() {
     return (
       <Router history={history} >
@@ -33,7 +31,7 @@ export default class App extends Component {
             <Account history={history} />
           </Route>
         </Switch>
-
+  }
       </Router >
     );
   }
