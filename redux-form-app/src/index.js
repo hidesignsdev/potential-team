@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
-// import store from "./configureStore";
 import { createStore, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
+import "./App.css";
 
 const rootReducer = combineReducers({ form: formReducer })
 const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(rootReducer)

@@ -1,19 +1,22 @@
 import React from "react";
+import CongratulationsForm from '../form/CongratulationsForm';
+import { withRouter } from "react-router-dom";
 
 class Congratulations extends React.Component {
+
+    submit = values => {
+
+        const { history } = this.props;
+        console.log(values);
+        history.push("/account")
+    }
     render() {
         return (
-            <div className="container-login">
-                <div className="login-form">
-                    <div className="logo">
-                        <img src="./logo.png" alt="" />
-                    </div>
-                    <h3>{"Congratulations!"}</h3>
-                    <p>{"Your account has been created successfully"}</p>
-                    <button className="btn btn-primary">OK</button>
-                </div>
+            <div className="container">
+                <CongratulationsForm onSubmit={this.submit} />
             </div>
         );
     }
 }
-export default Congratulations;
+
+export default withRouter(Congratulations);

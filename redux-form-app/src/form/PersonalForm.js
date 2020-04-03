@@ -5,10 +5,8 @@ const PersonalForm = props => {
     const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>
-            <div>
-                <h1>Personal Information</h1>
-            </div>
-            <div>
+            <h3>Personal Information</h3>
+            <div className="form-field">
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
                     <option />
@@ -16,12 +14,11 @@ const PersonalForm = props => {
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                 </Field>
-            </div>
-            <div>
                 <label htmlFor="birthday">Birthday</label>
                 <Field name="birthday" component="input" type="date" />
+                <button type="submit" className="btn btn-primary">Next</button>
             </div>
-            <button type="submit">Next</button>
+
         </form>
     )
 }

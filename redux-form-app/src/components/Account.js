@@ -1,22 +1,22 @@
 import React from "react";
-import LoginForm from '../form/LoginForm';
+import AccountForm from '../form/AccountForm';
 import { withRouter } from "react-router-dom";
 
-class Login extends React.Component {
+class Account extends React.Component {
 
     submit = values => {
 
         const { history } = this.props;
         console.log(values);
-        history.push("/account")
+        // history.push("/")
     }
     render() {
         return (
             <div className="container">
-                <LoginForm onSubmit={this.submit} />
+                <AccountForm onSubmit={this.submit} />
             </div>
         );
     }
 }
 
-export default withRouter(Login);
+export default withRouter(Account);
