@@ -1,6 +1,5 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
-import './index.css';
 
 const HelloForm = props => {
     return (

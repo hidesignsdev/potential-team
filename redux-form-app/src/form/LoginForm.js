@@ -10,11 +10,11 @@ const LoginForm = props => {
                 <Field name="email" component="input" type="email" />
                 <label htmlFor="password">Password</label>
                 <Field name="password" component="input" type="password" />
-                <a href="/abcd">{"Forgot password?"}</a>
+                <a href="#">{"Forgot password?"}</a>
                 <button type="submit" className="btn btn-primary">Sign In</button>
             </div>
             <div>
-                <p>{"Don't have account?"}<a href="/sign-up">{"Sign up"}</a></p>
+                <p>{"Don't have account?"}<a href="/sign-up">{" Sign up"}</a></p>
             </div>
         </form>
     )

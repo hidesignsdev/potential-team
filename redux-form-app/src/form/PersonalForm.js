@@ -10,7 +10,7 @@ const PersonalForm = props => {
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
                     <option />
-                    <option value="male">male</option>
+                    <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                 </Field>
