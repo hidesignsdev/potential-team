@@ -1,13 +1,15 @@
 import React from "react";
 import LoginForm from '../form/LoginForm';
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import {logIn} from "../actions/index";
 
 class Login extends React.Component {
-
     submit = values => {
 
         const { history } = this.props;
-        console.log(values);
+        console.log("account", values);
+        this.props.logIn(values);
         history.push("/account")
     }
     render() {
@@ -18,5 +20,11 @@ class Login extends React.Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return { account: state.account }
+}
 
-export default withRouter(Login);
+const mapDispatchToProps = (dispatch) => {
+    return { logIn: (account) => dispatch(logIn(account)) }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
