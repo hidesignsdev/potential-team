@@ -7,7 +7,7 @@ import PersonalInfo from './components/PersonalInfo';
 import Account from './components/Account';
 import Congratulations from './components/Congratulations';
 import { Router, Switch, Route} from "react-router-dom";
-import history from "./history"
+import history from "./History"
 import HelloForm from './form/HelloForm';
 
 export default class App extends Component {
