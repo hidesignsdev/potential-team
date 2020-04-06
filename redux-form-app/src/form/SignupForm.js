@@ -21,7 +21,7 @@ const SignupForm = props => {
                 <button type="submit" className="btn btn-primary">Sign Up</button>
             </div>
             <div>
-                <p>{"Already have account?"}<a href="/">{"Sign in"}</a></p>
+                <p>{"Already have account?"}<a href="/login">{"Sign in"}</a></p>
             </div>
         </form>
     )

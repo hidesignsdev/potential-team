@@ -10,10 +10,12 @@ const LoginForm = props => {
             <div className="form-field">
                 <img className="square" src={Image} alt=""></img>
                 <label htmlFor="email">Email</label>
-                <Field name="email" component="input" type="email" validate={required}/>
-                <label htmlFor="password">Password</label>
-                <Field name="password" component="input" type="password" validate={required} />
-                <a href="/sign-up">{"Forgot password?"}</a>
+                <Field name="email" component="input" type="email" />
+                <label htmlFor="password">Password
+                <a className="fg-pass" href="/sign-up">Forgot password?
+                </a>
+                </label>
+                <Field name="password" component="input" type="password" />
                 <button type="submit" className="btn btn-primary">Sign In</button>
             </div>
             <div>

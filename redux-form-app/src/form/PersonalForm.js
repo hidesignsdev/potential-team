@@ -14,7 +14,7 @@ const PersonalForm = props => {
                             <thead>
                                 <tr>
                                     <td>
-                                        <div className="rectangle"></div>
+                                        <div className="rectangle active"></div>
                                     </td>
                                     <td className="between-its">
                                         <div className="rectangle"></div>
@@ -30,7 +30,7 @@ const PersonalForm = props => {
                         </table>
                     </center>
                 </div>
-                <h3>Personal Information</h3>
+                <center><h3>Personal Information</h3></center>
                 <img className="round" src={Image} alt=""></img>
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
@@ -41,7 +41,7 @@ const PersonalForm = props => {
                 </Field>
                 <label htmlFor="birthday">Birthday</label>
                 <Field name="birthday" component="input" type="date" />
-                <button type="submit" className="btn btn-primary">Next</button>
+                <button type="submit" className="btn btn-primary btn-next">Next</button>
             </div>
         </form>
     )

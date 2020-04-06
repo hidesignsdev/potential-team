@@ -7,9 +7,9 @@ const CongratulationsForm = props => {
         <form onSubmit={handleSubmit}>
             <div className="form-field">
                 <img className="square" src={Image} alt=""></img>
-                <h3>{"Congratulations!"}</h3>
+                <center><h3>{"Congratulations!"}</h3></center>
                 <p>{"Your account has been created successfully"}</p>
-                <button className="btn btn-primary">OK</button>
+                <button className="btn btn-primary btn-ok">OK</button>
             </div>
         </form>
     )
