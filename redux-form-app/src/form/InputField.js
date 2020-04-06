@@ -1,17 +1,19 @@
- import React from 'react';
+import React from 'react';
 
- class InputField extends React.Component {
-    render(){
-        const { input, label, type, meta: { touched, error, warning } } = this.props;
+class InputField extends React.Component {
+    render() {
+        const { input, type, meta: { touched, error, warning }} = this.props;
+        console.log("error: ", error)
+        console.log("touched: ", touched)
         return (
-            <div>
-                <label>{label}</label>
-                <div>
-                    <input {...input} placeholder={label} type={type} />
-                    {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-                </div>
-            </div>
+            // dung cai nay de bo div
+            <React.Fragment>
+                <input {...input} type={type} />
+                {touched && (error || warning) ? <div className="alert-error">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>{error || warning}
+                </div> : null}
+            </React.Fragment>
         )
     }
- }
+}
 export default InputField;

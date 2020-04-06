@@ -4,57 +4,54 @@
   justify-content: center;
   height: 95vh;
   flex-direction: column;
-
 }
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-input{
+input {
   border: 1px solid #ccc;
   font-size: 14px;
   padding: 3px 8px;
   border-radius: 5px;
 }
-.form-field{
+.form-field {
   display: flex;
   flex-direction: column;
   flex: 1;
-  justify-content:center;
+  justify-content: center;
 }
-button{
+button {
   margin-top: 10px;
 }
-label{
+label {
   margin-top: 5px;
   margin-bottom: 0px;
-
 }
-.forgot-password{
-  font-size:12px;
+.forgot-password {
+  font-size: 12px;
   text-align: right;
 }
-form{
+form {
   display: flex;
   flex: 1;
   flex-direction: column;
-
 }
-.more-info{
+.more-info {
   margin-left: 40px;
 }
-.sign-out{
+.sign-out {
   color: red;
 }
 
-.square{
+.square {
   height: auto;
   width: 100px;
   align-self: center;
   margin-bottom: 50px;
 }
-.round{
+.round {
   height: auto;
   width: 100px;
   align-self: center;
@@ -68,7 +65,7 @@ form{
   margin-top: 250px;
   /* border-width: 2px; */
 }
-.between-its{
+.between-its {
   padding-left: 20px;
 }
 .rectangle {
@@ -77,42 +74,45 @@ form{
   border-radius: 5px;
   background-color: #555;
 }
-.process{
+.process {
   margin-bottom: 150px;
 }
-.btn-view{
+.btn-view {
   background-color: white;
   width: 100%;
   text-align: left;
 }
-.btn-change{
+.btn-change {
   background-color: white;
   width: 100%;
   text-align: left;
 }
-.username{
+.username {
   padding-bottom: 50px;
 }
-.arrow{
+.arrow {
   float: right;
 }
-.fg-pass{
+.fg-pass {
   padding-left: 55px;
   font-size: 12px;
 }
-.active{
+.active {
   background-color: mediumaquamarine;
 }
-.btn-next{
+.btn-next {
   margin-top: 100px;
 }
-.btn-ok{
+.btn-ok {
   margin-top: 250px;
 }
-.btn-korec{
+.btn-korec {
   margin-top: 400px;
   border: none;
   background-color: inherit;
   cursor: pointer;
   display: inline-block;
+}
+.alert-error {
+  color: red;
 }
