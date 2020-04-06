@@ -1,14 +1,12 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-
+import { reduxForm } from 'redux-form';
+import Image from '../image/iconReact.png'
 const CongratulationsForm = props => {
     const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-field">
-                {/* <div className="logo">
-                        <img src="./logo.png" alt="" />
-                    </div> */}
+                <img className="square" src={Image} alt=""></img>
                 <h3>{"Congratulations!"}</h3>
                 <p>{"Your account has been created successfully"}</p>
                 <button className="btn btn-primary">OK</button>
@@ -16,4 +14,4 @@ const CongratulationsForm = props => {
         </form>
     )
 }
-export default reduxForm({ form: 'personal-info' })(CongratulationsForm)
+export default reduxForm({ form: 'congratulate' })(CongratulationsForm)

@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from '../form/LoginForm';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import {logIn} from "../actions/index";
+import { logIn } from "../actions/index";
 
 class Login extends React.Component {
     submit = values => {

@@ -6,13 +6,11 @@
   flex-direction: column;
 
 }
-
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 input{
   border: 1px solid #ccc;
   font-size: 14px;
@@ -48,4 +46,51 @@ form{
 }
 .sign-out{
   color: red;
+}
+
+.square{
+  height: auto;
+  width: 100px;
+  align-self: center;
+  margin-bottom: 50px;
+}
+.round{
+  height: auto;
+  width: 100px;
+  align-self: center;
+  border-radius: 35%;
+  padding-top: 50px;
+  /* padding-bottom: 50px; */
+}
+.icon-table {
+  font-size: 10px;
+  /* border-style: solid; */
+  margin-top: 250px;
+  /* border-width: 2px; */
+}
+.between-its{
+  padding-left: 20px;
+}
+.rectangle {
+  height: 5px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: #555;
+}
+.process{
+  margin-bottom: 150px;
+}
+.btn-view{
+  background-color: white;
+  width: 100%;
+  text-align: left;
+}
+.btn-change{
+  background-color: white;
+  width: 100%;
+  text-align: left;
+}
+.username{
+  padding-bottom: 50px;
+  padding-top: 20px;
 }

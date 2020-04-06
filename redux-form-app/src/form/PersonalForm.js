@@ -1,12 +1,37 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import Image from '../image/iconReact.png'
 
 const PersonalForm = props => {
     const { handleSubmit } = props
     return (
         <form onSubmit={handleSubmit}>
-            <h3>Personal Information</h3>
             <div className="form-field">
+                <div className="process">
+                    <p>Some final step to finish your registration</p>
+                    <center>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <div className="rectangle"></div>
+                                    </td>
+                                    <td className="between-its">
+                                        <div className="rectangle"></div>
+                                    </td>
+                                    <td className="between-its">
+                                        <div className="rectangle"></div>
+                                    </td>
+                                    <td className="between-its">
+                                        <div className="rectangle"></div>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </center>
+                </div>
+                <h3>Personal Information</h3>
+                <img className="round" src={Image} alt=""></img>
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
                     <option />
@@ -18,7 +43,6 @@ const PersonalForm = props => {
                 <Field name="birthday" component="input" type="date" />
                 <button type="submit" className="btn btn-primary">Next</button>
             </div>
-
         </form>
     )
 }

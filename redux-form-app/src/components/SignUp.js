@@ -12,7 +12,6 @@ class SignUp extends React.Component {
         return (
             <div className="container">
                 <SignupForm onSubmit={this.submit} />
-
             </div>
         );
     }

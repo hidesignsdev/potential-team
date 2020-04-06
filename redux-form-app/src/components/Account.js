@@ -6,7 +6,7 @@ class Account extends React.Component {
 
     submit = values => {
 
-        const { history } = this.props;
+        //const { history } = this.props;
         console.log(values);
         // history.push("/")
     }
