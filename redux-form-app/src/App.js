@@ -6,9 +6,9 @@ import SignUp from './components/SignUp';
 import PersonalInfo from './components/PersonalInfo';
 import Account from './components/Account';
 import Congratulations from './components/Congratulations';
-import { Router, Switch, Route} from "react-router-dom";
-import history from "./history"
-import HelloForm from './form/HelloForm';
+import { Router, Switch, Route } from "react-router-dom";
+import history from "./History"
+import Hello from './components/Hello';
 
 export default class App extends Component {
   render() {
@@ -17,10 +17,10 @@ export default class App extends Component {
         <Switch>
           {/* cho nay ko co exact no se bao gom luon cac router khac */}
           <Route exact path="/">
-            <Login history={history} />
+            <Hello history={history} />
           </Route>
-          <Route path="/hello">
-            <HelloForm history={history} />
+          <Route path="/login">
+            <Login history={history} />
           </Route>
           <Route path="/sign-up">
             <SignUp history={history} />
@@ -35,7 +35,6 @@ export default class App extends Component {
             <Account history={history} />
           </Route>
         </Switch>
-  }
       </Router >
     );
   }

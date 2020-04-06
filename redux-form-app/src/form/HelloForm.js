@@ -2,10 +2,13 @@ import React from 'react';
 import { reduxForm } from 'redux-form';
 
 const HelloForm = props => {
+    const { handleSubmit } = props
     return (
-        <div>
-            <h1 className="title">KOREC</h1>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <div>
+               <button className="btn-korec"><h1>KOREC</h1></button>
+            </div>
+        </form>
     )
 }
 

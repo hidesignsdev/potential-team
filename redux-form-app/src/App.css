@@ -60,7 +60,7 @@ form{
   align-self: center;
   border-radius: 35%;
   padding-top: 50px;
-  /* padding-bottom: 50px; */
+  padding-bottom: 50px;
 }
 .icon-table {
   font-size: 10px;
@@ -92,5 +92,27 @@ form{
 }
 .username{
   padding-bottom: 50px;
-  padding-top: 20px;
+}
+.arrow{
+  float: right;
+}
+.fg-pass{
+  padding-left: 55px;
+  font-size: 12px;
+}
+.active{
+  background-color: mediumaquamarine;
+}
+.btn-next{
+  margin-top: 100px;
+}
+.btn-ok{
+  margin-top: 250px;
+}
+.btn-korec{
+  margin-top: 400px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  display: inline-block;
 }
