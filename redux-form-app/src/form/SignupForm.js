@@ -6,6 +6,7 @@ import { required } from "./validate";
 
 async function submitSignUp(data) {
     try {
+  
         let response = await fetch('https://api.korec-dev.scrum-dev.com/api/functions/userSignup', {
             method: 'POST',
             headers: {

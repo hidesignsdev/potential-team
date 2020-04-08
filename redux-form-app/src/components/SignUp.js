@@ -7,7 +7,7 @@ class SignUp extends React.Component {
     submit = values => {
         const {history} = this.props;
         console.log("sign-up",values)
-
+ 
         history.push("/personal-info");
     }
     render() {
