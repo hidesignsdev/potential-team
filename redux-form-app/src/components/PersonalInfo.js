@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom"
 class PersonalInfo extends React.Component {
     submit = values => {
         const { history } = this.props;
-        console.log(values);
         history.push("/congratulations")
     }
     render() {

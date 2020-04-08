@@ -6,9 +6,9 @@ import { logIn } from "../actions/index";
 
 class Login extends React.Component {
     submit = values => {
-        const { history } = this.props;
+        const { history, logIn } = this.props;
         console.log("account", values);
-        this.props.logIn(values);
+        logIn(values);
         history.push("/account")
     }
     render() {
