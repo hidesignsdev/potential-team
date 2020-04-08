@@ -3,8 +3,8 @@ import React from 'react';
 class InputField extends React.Component {
     render() {
         const { input, type, meta: { touched, error, warning }} = this.props;
-        console.log("error: ", error)
-        console.log("touched: ", touched)
+        //console.log("error: ", error)
+        //console.log("touched: ", touched)
         return (
             // dung cai nay de bo div
             <React.Fragment>

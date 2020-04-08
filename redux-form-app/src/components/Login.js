@@ -8,6 +8,7 @@ class Login extends React.Component {
     submit = values => {
         const { history, logIn } = this.props;
         console.log("account", values);
+
         logIn(values);
         history.push("/account")
     }
