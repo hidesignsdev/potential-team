@@ -46,4 +46,4 @@ const PersonalForm = props => {
         </form>
     )
 }
-export default reduxForm({ form: 'personal-info' })(PersonalForm)
+export default reduxForm({ form: 'personalInfo' })(PersonalForm)
