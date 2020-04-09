@@ -6,6 +6,9 @@ export const validateSignup = values => {
   if (!values.password) {
     errors.password = 'Required';
   }
+  else if(values.password.length < 8){
+    errors.password = 'Password must be longer than 8 characters';
+  }
   if (!values.cfPassword) {
     errors.cfPassword = 'Required';
   } else if (values.cfPassword !== values.password) {
