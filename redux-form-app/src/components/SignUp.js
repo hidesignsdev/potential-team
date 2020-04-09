@@ -1,25 +1,10 @@
 import React from "react";
-import axios from "axios";
 import SignupForm from '../form/SignupForm'
 import { withRouter } from "react-router-dom";
 import { validateSignup } from "../form/validate";
 import _ from "lodash";
+import {apiFunction} from "./api";
 
-async function submitSignUp(data, callback) {
-    await axios.post('https://api.korec-dev.scrum-dev.com/api/functions/userSignup', data, {
-        headers: {
-            'X-Parse-Application-Id': 'U2fZ7KvIHVvH4snHbkj02uKBpISSWF8C1oePV7iraoy69JrMBvPi',
-            'X-Parse-REST-API-Key': 'UrEeTwu2B5izB28HmtcOm7JpLmDSbSpxILDJ7NdXlA9InpenPj',
-            'Content-Type': 'application/json',
-        },
-    }).then(response => {
-        console.log(response)
-        callback && callback(true, response)
-    }).catch(error => {
-        console.error(error)
-        callback && callback(false, error)
-    });
-}
 
 class SignUp extends React.Component {
 
@@ -27,7 +12,7 @@ class SignUp extends React.Component {
         const { history } = this.props;
         // remove cfPassword
         const datapost = _.pick(values, ['firstName', 'lastName', 'email', 'password']);
-        submitSignUp(datapost, (success, response) => {
+        apiFunction('https://api.korec-dev.scrum-dev.com/api/functions/userSignup', datapost, (success, response) => {
             if(success){
                 history.push("/personal-info");
             } else {
