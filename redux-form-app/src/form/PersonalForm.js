@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { required, age } from "./validate";
+import { required } from "./validate";
 import InputField from "./InputField";
 import ImageUpload from "../components/ImageUpload";
 
@@ -34,7 +34,7 @@ const PersonalForm = props => {
                 </div>
                 <center><h3>Personal Information</h3></center>
                 {/* <img className="round" src={Image} alt=""></img> */}
-                <ImageUpload/>
+                <Field name="file" component={ImageUpload} />
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
                     <option value="">Select your gender...</option>
@@ -44,7 +44,7 @@ const PersonalForm = props => {
                 </Field>
                 <label htmlFor="dateOfBirth">Birthday</label>
                 {/* <Field name="dateOfBirth" component={InputField} type="date"  validate={[required,age]} max={moment().format('l')} min={moment().subtract(100,"years").format('l')}/> */}
-                <Field name="dateOfBirth" component={InputField} type="date" validate={[required, age]} />
+                <Field name="dateOfBirth" component={InputField} type="date" validate={required} />
                 <button type="submit" className="btn btn-primary btn-next">Next</button>
             </div>
         </form>

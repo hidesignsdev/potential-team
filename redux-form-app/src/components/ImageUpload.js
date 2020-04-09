@@ -10,6 +10,9 @@ class ImageUpload extends React.Component {
         console.log('handle uploading:', this.state.file);
     }
     handleImageChange(item) {
+        const { input: { onChange } } = this.props;
+
+
         item.preventDefault();
         let reader = new FileReader();
         let file = item.target.files[0];
@@ -21,6 +24,7 @@ class ImageUpload extends React.Component {
             });
         }
         reader.readAsDataURL(file);
+        onChange && onChange({a: item.target.files[0], b: reader})
     }
     render() {
         let { imagePreviewUrl } = this.state;
@@ -30,10 +34,14 @@ class ImageUpload extends React.Component {
                     {imagePreviewUrl ? <img src={imagePreviewUrl} /> :
                         <div></div>}
                 </div>
-                <i onClick={() => this.inputImg.click()} className="fa fa-camera icon-style" aria-hidden="true"></i>
-                <form style={{ display: 'none' }} onSubmit={(event) => this.handleSubmit(event)}>
-                    <input ref={component => this.inputImg = component} type="file" accept="image/*" onChange={(item) => this.handleImageChange(item)} />
-                </form>
+                <i onClick={() => {
+                    this.inputImg.click()
+                }} className="fa fa-camera icon-style" aria-hidden="true"></i>
+                {/* <form style={{ display: 'none' }} onSubmit={(event) => this.handleSubmit(event)}/> */}
+                <input style={{ display: 'none' }}
+                    ref={component => this.inputImg = component}
+                    type="file" accept="image/*"
+                    onChange={(item) => this.handleImageChange(item)} />
 
             </div>
 

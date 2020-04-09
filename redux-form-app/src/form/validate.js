@@ -18,9 +18,3 @@ export const validateSignup = values => {
 };
 // export const minLength = min => value => value && value.length < min ? "Must be ${min} characters or more": undefined
 // export const minLength8 = minLength(8);
-export const age = value => {
-  console.log("age", typeof (value))
-  console.log("time now", moment().format("DD/MM/YY"))
-  return value && value > 100 ? 'You might be too old for this' : undefined;
-
-}

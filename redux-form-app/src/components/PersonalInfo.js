@@ -8,8 +8,9 @@ import {apiFunction} from "./api";
 class PersonalInfo extends React.Component {
     submit = values => {
         const { history } = this.props;
-        const datapost = _.pick(values, ['gender', 'dateOfBirth']);
-        // apiFunction('https://api.korec-dev.scrum-dev.com/api/functions/updateProfile', datapost, (success, response) => {
+        console.log(values, "gia tri cua personinfo")
+        // const datapost = _.pick(values, ['gender', 'dateOfBirth']);
+        // apiFunction('https://api.korec-dev.scrum-dev.com/api/functions/uploadImage', datapost, (success, response) => {
         //     if (success) {
         //         history.push("/congratulations")
         //     } else {
