@@ -6,7 +6,7 @@ import PersonalInfo from './components/PersonalInfo';
 import Account from './components/Account';
 import Congratulations from './components/Congratulations';
 import { Router, Switch, Route } from "react-router-dom";
-import history from "./History"
+import history from "./helpers/History"
 import Hello from './components/Hello';
 
 export default class App extends Component {

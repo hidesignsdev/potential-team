@@ -3,7 +3,9 @@ import SignupForm from '../form/SignupForm'
 import { withRouter } from "react-router-dom";
 import { validateSignup } from "../form/validate";
 import _ from "lodash";
-import {apiFunction} from "./api";
+import { signUp } from '../actions/index';
+import { connect } from "react-redux";
+
 
 
 class SignUp extends React.Component {
@@ -11,16 +13,10 @@ class SignUp extends React.Component {
     submit = values => {
         const { history } = this.props;
         // remove cfPassword
-        const datapost = _.pick(values, ['firstName', 'lastName', 'email', 'password']);
-        apiFunction('https://api.korec-dev.scrum-dev.com/api/functions/userSignup', datapost, (success, response) => {
-            if(success){
-                history.push("/personal-info");
-            } else {
-                console.log(response);
-                // alert(_.get(response, "error"))
-                alert("Vui lòng thử lại!")
-            }
-        });
+        const infor = _.pick(values, ['firstName', 'lastName', 'email', 'password']);
+        const result = this.props.signUp(infor);
+        console.log("sign-up", result)
+        history.push("/personal-info");
     }
     render() {
         return (
@@ -30,4 +26,7 @@ class SignUp extends React.Component {
         );
     }
 }
-export default withRouter(SignUp);
+const mapDispatchToProps = (dispatch) => {
+    return { signUp: (infor) => dispatch(signUp(infor)) }
+}
+export default connect(null, mapDispatchToProps)(withRouter(SignUp));

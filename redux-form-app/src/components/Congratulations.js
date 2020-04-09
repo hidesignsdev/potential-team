@@ -8,7 +8,6 @@ class Congratulations extends React.Component {
         super(props);
         this.handleClick = this.handleClick.bind(this)
     }
-
     handleClick() {
         const { history } = this.props;
         //console.log(values);

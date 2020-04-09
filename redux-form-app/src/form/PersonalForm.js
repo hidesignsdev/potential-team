@@ -38,9 +38,9 @@ const PersonalForm = props => {
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
                     <option value="">Select your gender...</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="男性">男性</option>
+                    <option value="女性">女性</option>
+                    <option value="その他">その他</option>
                 </Field>
                 <label htmlFor="dateOfBirth">Birthday</label>
                 {/* <Field name="dateOfBirth" component={InputField} type="date"  validate={[required,age]} max={moment().format('l')} min={moment().subtract(100,"years").format('l')}/> */}
