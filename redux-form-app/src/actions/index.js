@@ -1,13 +1,11 @@
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT';
-export const SIGNUP = 'SIGNUP';
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 
-export const logIn = (user) => {
-    return { type: LOGIN, payload: user }
+export const logIn = (data) => {
+    return { type: LOGIN_REQUEST, payload: { data } }
 }
-export const logOut = () => {
-    return { type: LOGOUT }
-}
-export const signUp = (info) => {
-    return { type: SIGNUP, payload: info }
+export const signUp = (data) => {
+    return { type: SIGNUP_REQUEST, payload: { data } }
 }
