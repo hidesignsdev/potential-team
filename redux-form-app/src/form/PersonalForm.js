@@ -1,9 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Image from '../image/iconReact.png'
 import { required, age } from "./validate";
 import InputField from "./InputField";
-//import moment from 'moment';
+import ImageUpload from "../components/ImageUpload";
 
 const PersonalForm = props => {
     const { handleSubmit } = props
@@ -34,7 +33,8 @@ const PersonalForm = props => {
                     </center>
                 </div>
                 <center><h3>Personal Information</h3></center>
-                <img className="round" src={Image} alt=""></img>
+                {/* <img className="round" src={Image} alt=""></img> */}
+                <ImageUpload/>
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
                     <option value="">Select your gender...</option>
@@ -42,9 +42,9 @@ const PersonalForm = props => {
                     <option value="女性">女性</option>
                     <option value="その他">その他</option>
                 </Field>
-                <label htmlFor="birthday">Birthday</label>
-                {/* <Field name="birthday" component={InputField} type="date"  validate={[required,age]} max={moment().format('l')} min={moment().subtract(100,"years").format('l')}/> */}
-                <Field name="birthday" component={InputField} type="date" placeholder={'MM-DD-YYYY'} validate={[required, age]} />
+                <label htmlFor="dateOfBirth">Birthday</label>
+                {/* <Field name="dateOfBirth" component={InputField} type="date"  validate={[required,age]} max={moment().format('l')} min={moment().subtract(100,"years").format('l')}/> */}
+                <Field name="dateOfBirth" component={InputField} type="date" validate={[required, age]} />
                 <button type="submit" className="btn btn-primary btn-next">Next</button>
             </div>
         </form>
