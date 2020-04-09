@@ -38,13 +38,13 @@ const PersonalForm = props => {
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
                     <option value="">Select your gender...</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="男性">男性</option>
+                    <option value="女性">女性</option>
+                    <option value="その他">その他</option>
                 </Field>
                 <label htmlFor="birthday">Birthday</label>
                 {/* <Field name="birthday" component={InputField} type="date"  validate={[required,age]} max={moment().format('l')} min={moment().subtract(100,"years").format('l')}/> */}
-                <Field name="birthday" component={InputField} type="date" validate={[required, age]} />
+                <Field name="birthday" component={InputField} type="date" placeholder={'MM-DD-YYYY'} validate={[required, age]} />
                 <button type="submit" className="btn btn-primary btn-next">Next</button>
             </div>
         </form>
