@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logIn } from "../actions/index";
 import axios from "axios";
-import _ from "lodash";
 
 async function submitLogin(data, callback) {
     await axios.post('https://api.korec-dev.scrum-dev.com/api/functions/login', data, {
@@ -30,6 +29,15 @@ class Login extends React.Component {
         datapost.password = values.password;
         submitLogin(datapost, (success, response) => {
             if(success){
+                const data = response.data.result;
+                console.log(response.data.result, "data after request")
+                let user = {};
+                user.name = data.firstName + " " + data.lastName;
+                user.email = data.email;
+                user.gender = data.gender ? data.gender : "";
+                user.dateOfBirth = data.dateOfBirth ? data.dateOfBirth:  "";
+                user.avatarUrl = data.avatarUrl ? data.avatarUrl: "";
+                this.props.logIn(user);
                 history.push("/account");
             } else {
                 console.log(response);
@@ -46,11 +54,9 @@ class Login extends React.Component {
         );
     }
 }
-const mapStateToProps = (state) => {
-    return { account: state.account }
-}
+
 
 const mapDispatchToProps = (dispatch) => {
-    return { logIn: (account) => dispatch(logIn(account)) }
+    return { logIn: (user) => dispatch(logIn(user)) }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
+export default connect(null, mapDispatchToProps)(withRouter(Login));
