@@ -6,7 +6,7 @@
     'Content-Type': 'application/json',
 }
 export async function apiFunction(url, data, callback) {
-    await axios.post(url, data, {
+    await axios.post('https://api.korec-dev.scrum-dev.com/api/functions/'+ url, data, {
         headers: appHeader,
     }).then(response => {
         console.log(response)
