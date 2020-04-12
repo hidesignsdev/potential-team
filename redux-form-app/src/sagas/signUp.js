@@ -1,14 +1,15 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import * as api from '../apis';
+import {apiFunction} from "../components/api";
+import _ from "lodash";
 import { SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../actions/index';
 
-
+const signUpUrl = "userSignup";
 function* callSignup(action) {
-    console.log('i am here')
     try {
-        const data = yield call(api.submitSignUp, action.payload.data)
-        console.log(data);
-        yield put({ type: SIGNUP_SUCCESS })
+        const response = yield call(apiFunction, signUpUrl, action.payload.data)
+        const data = _.get(response, "data.result")
+        console.log("data in callSignup",data);
+        yield put({ type: SIGNUP_SUCCESS, payload: {data} })
     }
     catch (err) {
         yield put({ type: SIGNUP_FAILURE })
@@ -19,4 +20,6 @@ function* callSignup(action) {
 export function* signupSaga() {
     yield takeLatest(SIGNUP_REQUEST, callSignup)
 }
+
+
 

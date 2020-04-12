@@ -11,11 +11,11 @@ import { connect } from "react-redux";
 class SignUp extends React.Component {
 
     submit = values => {
-        const { history } = this.props;
+        const { history, signUp } = this.props;
         // remove cfPassword
         const infor = _.pick(values, ['firstName', 'lastName', 'email', 'password']);
-        const result = this.props.signUp(infor);
-        console.log("sign-up", result)
+        const result = signUp(infor);
+        // console.log("sign-up", result)
         history.push("/personal-info");
     }
     render() {

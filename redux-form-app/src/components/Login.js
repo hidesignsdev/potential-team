@@ -15,7 +15,7 @@ class Login extends React.Component {
         submitLogin(datapost, (success, response) => {
             if (success) {
                 const data = response.data.result;
-                console.log(response.data.result, "data after request")
+                console.log(response.data.result, "data after request in Login class")
                 let user = {};
                 user.name = data.firstName + " " + data.lastName;
                 user.email = data.email;
@@ -25,7 +25,7 @@ class Login extends React.Component {
                 this.props.logIn(user);
                 history.push("/account");
             } else {
-                console.log(response);
+                // console.log(response);
                 // alert(_.get(response, "error"))
                 alert("Vui lòng thử lại!")
             }
