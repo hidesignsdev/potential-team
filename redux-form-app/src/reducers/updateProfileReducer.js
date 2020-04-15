@@ -1,5 +1,5 @@
 import { UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_FAILURE, UPDATE_PROFILE_SUCCESS }
-    from '../actions/index';
+    from '../actions/constants';
 
 const initialState = {
     data: {},

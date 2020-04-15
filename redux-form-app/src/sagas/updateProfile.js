@@ -1,7 +1,7 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import { apiUpload, apiFunction } from "../components/api";
 import _ from "lodash";
-import { UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_FAILURE, UPDATE_PROFILE_SUCCESS } from '../actions/index';
+import { UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_FAILURE, UPDATE_PROFILE_SUCCESS } from '../actions/constants';
 
 const upateProfileUrl = "updateProfile";
 const uploadImageUrl = "uploadImage";
