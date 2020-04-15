@@ -12,6 +12,7 @@ class Login extends React.Component {
         const datapost = {};
         datapost.username = values.email;
         datapost.password = values.password;
+        this.props.logIn(datapost)
         // submitLogin(datapost, (success, response) => {
         //     if (success) {
         //         const data = response.data.result;

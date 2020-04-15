@@ -20,7 +20,7 @@ class SignUp extends React.Component {
         // console.log("state appData", this.props.appData);
         // console.log("loading", this.state.loading);
         const {history } = this.props;
-        const { success, error, loading } = this.props.appData;
+        const { success, error, loading } = this.props.signUpReducer;
         // if (error) {
         //     alert(error);
         //     this.setState({ loading: false });
@@ -36,7 +36,7 @@ class SignUp extends React.Component {
     }
 }
 const mapStatetoProps = (state) => {
-    return { appData: state.appData }
+    return { signUpReducer: state.signUpReducer }
 }
 const mapDispatchToProps = (dispatch) => {
     return { signUp: (infor) => dispatch(signUp(infor)) }
