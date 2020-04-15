@@ -5,8 +5,9 @@ import InputField from "./InputField";
 import { required } from "./validate";
 
 
+
 const SignupForm = props => {
-    const { handleSubmit,loading, messageErr } = props;
+    const { handleSubmit, loading, messageErr } = props;
     console.log("error in form", messageErr);
     // console.log("loading in form", loading);
     return (
@@ -23,15 +24,13 @@ const SignupForm = props => {
                 <Field name="password" component={InputField} type="password" />
                 <label htmlFor="cfPassword">Confirm your password</label>
                 <Field name="cfPassword" component={InputField} type="password" />
-                {messageErr ? (<span className="alert-error">{messageErr}</span>): null}
+                {messageErr ? (<span className="alert-error">{messageErr}</span>) : null}
                 {loading ?
                     <button className="btn btn-primary" disabled>
                         <span className="spinner-border spinner-border-sm"></span>
                 Loading..
                 </button> : <button type="submit" className="btn btn-primary">Sign Up</button>
                 }
-
-
             </div>
             <div>
                 <p>{"Already have account?"}<a href="/login">{"Sign in"}</a></p>

@@ -1,13 +1,13 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import { apiFunction } from "../components/api";
 import _ from "lodash";
-import { SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../actions/index';
+import { SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../actions/constants';
 
 const delay = (ms) => new Promise(res => setTimeout(res, ms))
 const signUpUrl = "userSignup";
 function* callSignup(action) {
     try {
-        const response =  yield call(apiFunction, signUpUrl, action.payload.data)
+        const response = yield call(apiFunction, signUpUrl, action.payload.data)
         if (_.get(response, "data.error")) {
             yield put({ type: SIGNUP_FAILURE, payload: { error: _.get(response, "data.error") } })
         }

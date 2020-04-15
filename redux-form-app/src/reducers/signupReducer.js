@@ -1,5 +1,4 @@
-import { SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS }
-    from '../actions/index';
+import { SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../actions/constants';
 
 const initialState = {
     data: {},
