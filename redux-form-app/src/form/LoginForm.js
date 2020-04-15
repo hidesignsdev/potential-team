@@ -5,19 +5,27 @@ import { required } from "./validate";
 import InputField from "./InputField";
 
 const LoginForm = props => {
-    const { handleSubmit } = props;
+    const { handleSubmit, loading, messageErr } = props;
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-field">
                 <img className="square" src={Image} alt=""></img>
-                <label htmlFor="email">Email</label>
-                <Field name="email" component={InputField} type="email" validate={required} />
+                <label htmlFor="username">Email</label>
+                <Field name="username" component={InputField} type="email" validate={required} />
                 <label htmlFor="password">Password
                 <a className="fg-pass" href="/sign-up">Forgot password?
                 </a>
                 </label>
                 <Field name="password" component={InputField} type="password" validate={required} />
-                <button type="submit" className="btn btn-primary">Sign In</button>
+                {/* check erro and loading */}
+                {messageErr ? (<span className="alert-error">{messageErr}</span>) : null}
+                {loading ?
+                    <button className="btn btn-primary" disabled>
+                        <span className="spinner-border spinner-border-sm"></span>
+                Loading..
+                </button> : <button type="submit" className="btn btn-primary">Sign In</button>
+                }
+                
             </div>
             <div>
                 <p>{"Don't have account?"}<a href="/sign-up">{" Sign up"}</a></p>

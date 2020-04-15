@@ -8,8 +8,6 @@ import { required } from "./validate";
 
 const SignupForm = props => {
     const { handleSubmit, loading, messageErr } = props;
-    console.log("error in form", messageErr);
-    // console.log("loading in form", loading);
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-field">
@@ -24,6 +22,7 @@ const SignupForm = props => {
                 <Field name="password" component={InputField} type="password" />
                 <label htmlFor="cfPassword">Confirm your password</label>
                 <Field name="cfPassword" component={InputField} type="password" />
+                {/* check erro and loading */}
                 {messageErr ? (<span className="alert-error">{messageErr}</span>) : null}
                 {loading ?
                     <button className="btn btn-primary" disabled>

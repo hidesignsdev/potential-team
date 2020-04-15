@@ -13,18 +13,10 @@ class SignUp extends React.Component {
         // remove cfPassword
         const infor = _.pick(values, ['firstName', 'lastName', 'email', 'password']);
         signUp(infor);
-
-        // history.push("/personal-info");
     }
     render() {
-        // console.log("state appData", this.props.appData);
-        // console.log("loading", this.state.loading);
         const { history } = this.props;
         const { success, error, loading } = this.props.signUpReducer;
-        // if (error) {
-        //     alert(error);
-        //     this.setState({ loading: false });
-        // }
         if (success === true) {
             history.push("/personal-info");
         }
