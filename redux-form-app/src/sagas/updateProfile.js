@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import {apiFunction} from "../components/api";
+import { apiUpload, apiFunction } from "../components/api";
 import _ from "lodash";
 import { UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_FAILURE, UPDATE_PROFILE_SUCCESS } from '../actions/index';
 
@@ -8,12 +8,30 @@ const uploadImageUrl = "uploadImage";
 
 function* callUpdateProfile(action) {
     try {
-        const response_image = yield call(apiFunction, uploadImageUrl, action.payload.data)
-        console.log(response_image, "response image");
-        // const response_profile = yield call(apiFunction, upateProfileUrl, action.payload.data)
-        // const data = _.get(response_profile, "data.result")
-        // console.log("data in callSignup",data);
-        // yield put({ type: UPDATE_PROFILE_SUCCESS, payload: data })
+        // change type data of file
+        let formData = new FormData();
+        formData.append("file", action.payload.file);
+        formData.append("type", "AVATAR");
+        // post image
+        let response_image;
+        if (formData.file) {
+            response_image = yield call(apiUpload, uploadImageUrl, formData);
+            if (_.get(response_image, "data.error")) {
+                yield put({ type: UPDATE_PROFILE_FAILURE })
+            }
+
+        }
+        // add avatarId into info
+        let info = action.payload.info;
+        let avatarId =  _.get(response_image,"data.objectId");
+        if(avatarId){
+            info.avatarId =  avatarId
+        }
+        // post info
+        const response_profile = yield call(apiFunction, upateProfileUrl, info)
+        const data = _.get(response_profile, "data.result")
+        console.log("data in updateProfile", data);
+        yield put({ type: UPDATE_PROFILE_SUCCESS, payload: {info} })
     }
     catch (err) {
         yield put({ type: UPDATE_PROFILE_FAILURE })
