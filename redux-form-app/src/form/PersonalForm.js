@@ -7,7 +7,7 @@ import ImageUpload from "../components/ImageUpload";
 const PersonalForm = props => {
     const { handleSubmit } = props
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="updateForm">
             <div className="form-field">
                 <div className="process">
                     <p>Some final step to finish your registration</p>
@@ -33,7 +33,6 @@ const PersonalForm = props => {
                     </center>
                 </div>
                 <center><h3>Personal Information</h3></center>
-                {/* <img className="round" src={Image} alt=""></img> */}
                 <Field name="file" component={ImageUpload} />
                 <label htmlFor="gender">Gender</label>
                 <Field name="gender" component="select">
@@ -43,7 +42,6 @@ const PersonalForm = props => {
                     <option value="その他">その他</option>
                 </Field>
                 <label htmlFor="dateOfBirth">Birthday</label>
-                {/* <Field name="dateOfBirth" component={InputField} type="date"  validate={[required,age]} max={moment().format('l')} min={moment().subtract(100,"years").format('l')}/> */}
                 <Field name="dateOfBirth" component={InputField} type="date" validate={required} />
                 <button type="submit" className="btn btn-primary btn-next">Next</button>
             </div>

@@ -26,7 +26,7 @@ class ImageUpload extends React.Component {
         }
         if (file) {
             reader.readAsDataURL(file);
-            onChange && onChange({ fileObj: file, fileReader: reader })
+            onChange && onChange(file)
         }
     }
     render() {
