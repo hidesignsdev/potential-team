@@ -6,7 +6,7 @@ import { required } from "./validate";
 
 
 const SignupForm = props => {
-    const { handleSubmit } = props
+    const { handleSubmit } = props;
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-field">

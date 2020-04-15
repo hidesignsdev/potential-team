@@ -15,12 +15,17 @@ class SignUp extends React.Component {
         // remove cfPassword
         const infor = _.pick(values, ['firstName', 'lastName', 'email', 'password']);
         const result = signUp(infor);
-        console.log("du lieu tra ve tu ham", result)
-        console.log("state appData", appData)
+        // console.log("du lieu tra ve tu ham", result)
+        console.log("state appData trước", appData)
 
         // history.push("/personal-info");
     }
     render() {
+        console.log("state appData", this.props.appData);
+        const {error} = this.props.appData;
+        if(error){
+            alert(error);
+        }
         return (
             <div className="container">
                 <SignupForm onSubmit={this.submit} validate={validateSignup} />

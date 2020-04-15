@@ -14,7 +14,9 @@ class Hello extends React.Component {
     render() {
         return (
             <div className="container">
-                <button onClick={this.handleClick} className="btn-korec"><h1>KOREC</h1></button>
+                <button onClick={this.handleClick} className="btn-korec">
+                    <img alt="" src="https://emoji.slack-edge.com/TMXAN6Y2K/korec/50dbde7cf5e4de89.png" />
+                </button>
             </div>
         )
     }
