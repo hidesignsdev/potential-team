@@ -6,7 +6,7 @@ import { required } from "./validate";
 
 
 const SignupForm = props => {
-    const { handleSubmit } = props;
+    const { handleSubmit,loading } = props;
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-field">
@@ -21,7 +21,14 @@ const SignupForm = props => {
                 <Field name="password" component={InputField} type="password" />
                 <label htmlFor="cfPassword">Confirm your password</label>
                 <Field name="cfPassword" component={InputField} type="password" />
-                <button type="submit" className="btn btn-primary">Sign Up</button>
+                {loading ?
+                    <button className="btn btn-primary" disabled>
+                        <span className="spinner-border spinner-border-sm"></span>
+                Loading..
+                </button> : <button type="submit" className="btn btn-primary">Sign Up</button>
+                }
+
+
             </div>
             <div>
                 <p>{"Already have account?"}<a href="/login">{"Sign in"}</a></p>

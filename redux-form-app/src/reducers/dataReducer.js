@@ -3,7 +3,6 @@ from '../actions/index';
 
 const initialState = {
     data: {}, 
-    loading: false,
     success: false, 
     error: ""
 }
@@ -11,18 +10,18 @@ const dataReducer = (state = initialState, action) => {
     switch (action.type) {
         case SIGNUP_REQUEST:
             // console.log("sign up request", state)
-            return { ...state, data: "action.payload.data", loading: true};
+            return { ...state, data: "action.payload.data"};
         case SIGNUP_SUCCESS:
-            return { ...state, data: action.payload.data, loading: false, success: true};
+            return { ...state, data: action.payload.data, success: true};
         case SIGNUP_FAILURE:
             // console.log("sign up failed", state)
-            return { ...state, data: {}, loading: false, error: action.payload.error};
+            return { ...state, data: {}, error: action.payload.error};
         case LOGIN_REQUEST:
-            return { ...state,  data: {}, loading: true};
+            return { ...state,  data: {}};
         case LOGIN_SUCCESS:
-            return { ...state, data: action.payload.data, loading: false, };
+            return { ...state, data: action.payload.data};
         case LOGIN_FAILURE:
-            return { ...state, loading: false, error: action.payload.error };
+            return { ...state, error: action.payload.error };
         default:
             return state
     }
