@@ -1,4 +1,6 @@
  import axios from "axios";
+ import _ from "lodash";
+
  const baseUrl = 'https://api.korec-dev.scrum-dev.com/api/functions/';
 
  export const appHeader = {
@@ -10,10 +12,8 @@ export async function apiFunction(url, data) {
     return await axios.post(baseUrl + url, data, {
         headers: appHeader,
     }).then(response => {
-        console.log("response from apiFunction", response)
-        return response;
+        return response
     }).catch(error => {
-        console.error(error)
-        throw error;
+        return error.response;
     });
 }

@@ -11,12 +11,14 @@ import { connect } from "react-redux";
 class SignUp extends React.Component {
 
     submit = values => {
-        const { history, signUp } = this.props;
+        const { history, signUp, appData } = this.props;
         // remove cfPassword
         const infor = _.pick(values, ['firstName', 'lastName', 'email', 'password']);
         const result = signUp(infor);
-        // console.log("sign-up", result)
-        history.push("/personal-info");
+        console.log("du lieu tra ve tu ham", result)
+        console.log("state appData", appData)
+
+        // history.push("/personal-info");
     }
     render() {
         return (
@@ -26,7 +28,10 @@ class SignUp extends React.Component {
         );
     }
 }
+const mapStatetoProps = (state) => {
+    return { appData: state.appData }
+}
 const mapDispatchToProps = (dispatch) => {
     return { signUp: (infor) => dispatch(signUp(infor)) }
 }
-export default connect(null, mapDispatchToProps)(withRouter(SignUp));
+export default connect(mapStatetoProps, mapDispatchToProps)(withRouter(SignUp));

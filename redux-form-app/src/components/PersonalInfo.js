@@ -15,8 +15,8 @@ class PersonalInfo extends React.Component {
         const data = _.pick(values, ["gender", "dateOfBirth"]);
         data.firstName = appData.data.firstName
         data.lastName = appData.data.lastName
-        console.log(values, "gia tri cua personinfo")
-        console.log(appData.data, "data cuar appData")
+        // console.log(values, "gia tri cua personinfo")
+        // console.log(appData.data, "data cuar appData")
         updateProfile(fileObj,data );
         // const datapost = _.pick(values, ['gender', 'dateOfBirth']);
         // apiFunction('https://api.korec-dev.scrum-dev.com/api/functions/uploadImage', datapost, (success, response) => {
@@ -30,7 +30,7 @@ class PersonalInfo extends React.Component {
         // });
     }
     render() {
-        console.log(this.props.appData, "data cuar appData")
+        // console.log(this.props.appData, "data cuar appData")
 
         return (
             <div className="container">
