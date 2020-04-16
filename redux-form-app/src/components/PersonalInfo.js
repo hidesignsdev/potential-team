@@ -8,29 +8,30 @@ import moment from "moment";
 
 class PersonalInfo extends React.Component {
     submit = values => {
-        const { updateProfile, signUpReducer } = this.props;
+        const { updateProfile } = this.props;
         const info = _.pick(values, ["gender", "dateOfBirth"]);
         info.dateOfBirth = moment(info.dateOfBirth).format("YYYY/MM/DD")
         // get token of user have just created account
-        let ssToken = _.get(signUpReducer,"data.sessionToken");
-        updateProfile(info, values.file, ssToken);
+        updateProfile(info, values.file);
     }
     render() {
+        const { history } = this.props;
+        const { success, error, loading } = this.props.updateProfileReducer;
+        if (success === true) {
+            history.push("/congratulations");
+        }
         return (
             <div className="container">
-                <PersonalForm onSubmit={this.submit} />
+                <PersonalForm onSubmit={this.submit} loading={loading} messageErr={error} />
             </div>
 
         );
     }
 }
 const mapStatetoProps = (state) => {
-    return {
-        updateProfileReducer: state.updateProfileReducer,
-        signUpReducer: state.signUpReducer
-    }
+    return { updateProfileReducer: state.updateProfileReducer }
 }
 const mapDispatchToProps = (dispatch) => {
-    return { updateProfile: (info, file, ssToken) => dispatch(updateProfile(info, file, ssToken)) }
+    return { updateProfile: (info, file) => dispatch(updateProfile(info, file)) }
 }
 export default connect(mapStatetoProps, mapDispatchToProps)(withRouter(PersonalInfo));

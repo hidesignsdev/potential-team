@@ -5,7 +5,7 @@ import InputField from "./InputField";
 import ImageUpload from "../components/ImageUpload";
 
 const PersonalForm = props => {
-    const { handleSubmit } = props
+    const { handleSubmit, loading, messageErr } = props;
     return (
         <form onSubmit={handleSubmit} id="updateForm">
             <div className="form-field">
@@ -43,7 +43,15 @@ const PersonalForm = props => {
                 </Field>
                 <label htmlFor="dateOfBirth">Birthday</label>
                 <Field name="dateOfBirth" component={InputField} type="date" validate={required} />
-                <button type="submit" className="btn btn-primary btn-next">Next</button>
+                
+                {/* check erro and loading */}
+                {messageErr ? (<span className="alert-error">{messageErr}</span>) : null}
+                {loading ?
+                    <button className="btn btn-primary" disabled>
+                        <span className="spinner-border spinner-border-sm"></span>
+                Loading..
+                </button> : <button type="submit" className="btn btn-primary btn-next">Next</button>
+                }
             </div>
         </form>
     )

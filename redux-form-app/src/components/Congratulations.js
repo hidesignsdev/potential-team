@@ -10,7 +10,6 @@ class Congratulations extends React.Component {
     }
     handleClick() {
         const { history } = this.props;
-        //console.log(values);
         history.push("/account")
     }
     render() {

@@ -6,7 +6,7 @@ import _ from "lodash";
 import { signUp } from '../actions/index';
 import { connect } from "react-redux";
 
-class SignUp extends React.PureComponent {
+class SignUp extends React.Component {
 
     submit = values => {
         const { signUp } = this.props;

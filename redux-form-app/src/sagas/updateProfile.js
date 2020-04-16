@@ -28,16 +28,13 @@ function* callUpdateProfile(action) {
             info.avatarId =  avatarId
         }
         // post info
-        console.log("info in saga", info)
-        const response_profile = yield call(apiWithToken, upateProfileUrl, info, action.payload.ssToken)
+        const response_profile = yield call(apiWithToken, upateProfileUrl, info)
         const data = _.get(response_profile, "data.result")
-        console.log(response_profile)
-        console.log("data in updateProfile", data);
-        yield put({ type: UPDATE_PROFILE_SUCCESS, payload: {info} })
+        yield put({ type: UPDATE_PROFILE_SUCCESS, payload: {data} })
     }
     catch (err) {
         yield put({ type: UPDATE_PROFILE_FAILURE })
-        console.log(err);
+        console.err(err);
     }
 }
 

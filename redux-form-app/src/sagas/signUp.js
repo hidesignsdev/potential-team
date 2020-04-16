@@ -19,7 +19,7 @@ function* callSignup(action) {
     }
     catch (err) {
         yield put({ type: SIGNUP_FAILURE })
-        console.log(err);
+        console.err(err);
     }
 }
 

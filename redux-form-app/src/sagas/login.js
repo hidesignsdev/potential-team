@@ -7,7 +7,6 @@ const loginUrl = "login";
 
 function* callLogin(action) {
     try {
-        console.log("du lieu o log in", action.payload.data)
         const response = yield call(apiFunction, loginUrl, action.payload.data);
         if (_.get(response, "data.error")) {
             yield put({ type: LOGIN_FAILURE, payload: { error: _.get(response, "data.error") } })
@@ -21,7 +20,7 @@ function* callLogin(action) {
     }
     catch (err) {
         yield put({ type: LOGIN_FAILURE })
-        console.log(err);
+        console.err(err);
     }
 }
 
