@@ -10,6 +10,10 @@ import { connect } from "react-redux";
 import _ from "lodash";
 
 class Account extends React.Component {
+    signout = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('username')
+    }
     render() {
         const { data } = this.props.logInReducer;
         let name;
@@ -18,7 +22,7 @@ class Account extends React.Component {
             name = data.firstName + " " + data.lastName;
             avatarUrl = data.avatarUrl ? data.avatarUrl : Image;
         } else {
-            name = "Your name"
+            name = localStorage.getItem('username')
             avatarUrl = Image;
         }
         return (
@@ -41,7 +45,7 @@ class Account extends React.Component {
                         <hr />
                     </div>
                     <div>
-                        <a href="/login" className="sign-out">Sign Out</a>
+                        <a href="/login" onClick={this.signout} className="sign-out">Sign Out</a>
                     </div>
                     <table className="icon-table">
                         <thead>

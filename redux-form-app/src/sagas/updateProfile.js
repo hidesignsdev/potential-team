@@ -28,8 +28,9 @@ function* callUpdateProfile(action) {
             info.avatarId =  avatarId
         }
         // post info
-        const response_profile = yield call(apiFunction, upateProfileUrl, info)
+        const response_profile = yield call(apiUpload, upateProfileUrl, action.payload.info)
         const data = _.get(response_profile, "data.result")
+        console.log(response_profile)
         console.log("data in updateProfile", data);
         yield put({ type: UPDATE_PROFILE_SUCCESS, payload: {info} })
     }

@@ -13,6 +13,7 @@ function* callSignup(action) {
         else {
             const data = _.get(response, "data.result")
             yield put({ type: SIGNUP_SUCCESS, payload: { data } })
+            localStorage.setItem('token', data.sessionToken)
         }
 
     }

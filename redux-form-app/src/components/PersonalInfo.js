@@ -14,6 +14,7 @@ class PersonalInfo extends React.Component {
         console.log(values, "gia tri cua personinfo")
         // console.log(appData.data, "data cuar appData")
         updateProfile(info, values.file );
+        //console.log('i am here')
         // const datapost = _.pick(values, ['gender', 'dateOfBirth']);
         // apiFunction('https://api.korec-dev.scrum-dev.com/api/functions/uploadImage', datapost, (success, response) => {
         //     if (success) {
