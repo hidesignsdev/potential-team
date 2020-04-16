@@ -31,6 +31,7 @@ function* callUpdateProfile(action) {
         console.log("info in saga", info)
         const response_profile = yield call(apiWithToken, upateProfileUrl, info, action.payload.ssToken)
         const data = _.get(response_profile, "data.result")
+        console.log(response_profile)
         console.log("data in updateProfile", data);
         yield put({ type: UPDATE_PROFILE_SUCCESS, payload: {info} })
     }
