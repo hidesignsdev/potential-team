@@ -13,6 +13,7 @@ class Account extends React.Component {
     signout = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('username')
+        localStorage.removeItem('avatarUrl')
     }
     render() {
         const { data } = this.props.logInReducer;
@@ -28,12 +29,14 @@ class Account extends React.Component {
         }
         else {
             name = localStorage.getItem('username')
-            avatarUrl = Image;
+            avatarUrl = localStorage.getItem('avatarUrl');
         }
         return (
             <div className="container">
-                <div className="form-field">
-                    <img className="round" src={avatarUrl} alt=""></img>
+                <div className="form-field ">
+                    <div className="imgAccount ">
+                        <img src={avatarUrl} />
+                    </div>
                     <center className="username"><h3><b>{name}</b></h3></center>
                     <div>
                         <p className="btn-view">View profile

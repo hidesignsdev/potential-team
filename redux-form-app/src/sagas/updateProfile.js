@@ -14,12 +14,8 @@ function* callUpdateProfile(action) {
         formData.set("type", "AVATAR");
         // post image
         let response_image;
-        console.log("i need a image", action.payload.file)
-        console.log("formData", formData)
 
-        if (formData.file) {
-            console.log("response_image and nothing")
-
+        if (formData.getAll('file')) {
             response_image = yield call(apiUpload, uploadImageUrl, formData);
             if (_.get(response_image, "data.error")) {
                 yield put({ type: UPDATE_PROFILE_FAILURE, payload: { error: "Error with image" }})
@@ -27,13 +23,11 @@ function* callUpdateProfile(action) {
 
         }
         // add avatarId into info
-        console.log("response_image", response_image)
         let info = action.payload.info;
         let avatarId = _.get(response_image, "data.objectId");
         if (avatarId) {
             info.avatarId = avatarId
         }
-        console.log("avatarId", avatarId)
         // post info
         const response_profile = yield call(apiWithToken, upateProfileUrl, info)
         if (_.get(response_profile, "data.error")) {
