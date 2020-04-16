@@ -1,33 +1,21 @@
 import React from "react";
 import PersonalForm from '../form/PersonalForm';
 import { withRouter } from "react-router-dom"
-import {connect} from "react-redux";
-import {updateProfile} from "../actions/index";
+import { connect } from "react-redux";
+import { updateProfile } from "../actions/index";
 import _ from "lodash";
+import moment from "moment";
 
 class PersonalInfo extends React.Component {
     submit = values => {
-        const { history, appData, updateProfile } = this.props;
+        const { updateProfile, signUpReducer } = this.props;
         const info = _.pick(values, ["gender", "dateOfBirth"]);
-        // data.firstName = appData.data.firstName
-        // data.lastName = appData.data.lastName
-        console.log(values, "gia tri cua personinfo")
-        // console.log(appData.data, "data cuar appData")
-        updateProfile(info, values.file );
-        // const datapost = _.pick(values, ['gender', 'dateOfBirth']);
-        // apiFunction('https://api.korec-dev.scrum-dev.com/api/functions/uploadImage', datapost, (success, response) => {
-        //     if (success) {
-        //         history.push("/congratulations")
-        //     } else {
-        //         console.log(response);
-        //         // alert(_.get(response, "error"))
-        //         alert("Vui lòng thử lại!")
-        //     }
-        // });
+        info.dateOfBirth = moment(info.dateOfBirth).format("YYYY/MM/DD")
+        // get token of user have just created account
+        let ssToken = _.get(signUpReducer,"data.sessionToken");
+        updateProfile(info, values.file, ssToken);
     }
     render() {
-        // console.log(this.props.appData, "data cuar appData")
-
         return (
             <div className="container">
                 <PersonalForm onSubmit={this.submit} />
@@ -37,9 +25,12 @@ class PersonalInfo extends React.Component {
     }
 }
 const mapStatetoProps = (state) => {
-    return { appData: state.appData }
+    return {
+        updateProfileReducer: state.updateProfileReducer,
+        signUpReducer: state.signUpReducer
+    }
 }
 const mapDispatchToProps = (dispatch) => {
-    return { updateProfile: (info, file) => dispatch(updateProfile(info, file)) }
+    return { updateProfile: (info, file, ssToken) => dispatch(updateProfile(info, file, ssToken)) }
 }
 export default connect(mapStatetoProps, mapDispatchToProps)(withRouter(PersonalInfo));

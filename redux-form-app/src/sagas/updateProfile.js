@@ -1,9 +1,9 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { apiUpload, apiFunction } from "../components/api";
+import { apiUpload, apiWithToken } from "../components/api";
 import _ from "lodash";
 import { UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_FAILURE, UPDATE_PROFILE_SUCCESS } from '../actions/constants';
 
-const upateProfileUrl = "updateProfile";
+const upateProfileUrl = "updateProfileTesting";
 const uploadImageUrl = "uploadImage";
 
 function* callUpdateProfile(action) {
@@ -28,7 +28,8 @@ function* callUpdateProfile(action) {
             info.avatarId =  avatarId
         }
         // post info
-        const response_profile = yield call(apiFunction, upateProfileUrl, info)
+        console.log("info in saga", info)
+        const response_profile = yield call(apiWithToken, upateProfileUrl, info, action.payload.ssToken)
         const data = _.get(response_profile, "data.result")
         console.log("data in updateProfile", data);
         yield put({ type: UPDATE_PROFILE_SUCCESS, payload: {info} })
