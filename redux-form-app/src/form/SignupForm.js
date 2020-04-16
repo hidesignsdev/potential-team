@@ -22,14 +22,12 @@ const SignupForm = props => {
                 <Field name="password" component={InputField} type="password" />
                 <label htmlFor="cfPassword">Confirm your password</label>
                 <Field name="cfPassword" component={InputField} type="password" />
-                {/* check erro and loading */}
-                {messageErr ? (<span className="alert-error">{messageErr}</span>) : null}
-                {loading ?
-                    <button className="btn btn-primary" disabled>
-                        <span className="spinner-border spinner-border-sm"></span>
-                Loading..
-                </button> : <button type="submit" className="btn btn-primary">Sign Up</button>
-                }
+               {/* check erro and loading */}
+               <span className="alert-error">{messageErr ? messageErr : ""}</span>
+                <button type="submit" className="btn btn-primary">
+                    <span className={loading ? "spinner-border spinner-border-sm" : ""}></span>
+                    {loading ? "Loading..." : "Sign Up"}
+                </button>
             </div>
             <div>
                 <p>{"Already have account?"}<a href="/login">{"Sign in"}</a></p>

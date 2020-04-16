@@ -112,6 +112,7 @@ form {
 }
 .alert-error {
   color: red;
+  height: 24px;
 }
 .imgPreview {
   position: relative;

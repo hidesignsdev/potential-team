@@ -18,14 +18,12 @@ const LoginForm = props => {
                 </label>
                 <Field name="password" component={InputField} type="password" validate={required} />
                 {/* check erro and loading */}
-                {messageErr ? (<span className="alert-error">{messageErr}</span>) : null}
-                {loading ?
-                    <button className="btn btn-primary" disabled>
-                        <span className="spinner-border spinner-border-sm"></span>
-                Loading..
-                </button> : <button type="submit" className="btn btn-primary">Sign In</button>
-                }
-                
+                <span className="alert-error">{messageErr ? messageErr : ""}</span>
+                <button type="submit" className="btn btn-primary">
+                    <span className={loading ? "spinner-border spinner-border-sm" : ""}></span>
+                    {loading ? "Loading..." : "Sign In"}
+                </button>
+
             </div>
             <div>
                 <p>{"Don't have account?"}<a href="/sign-up">{" Sign up"}</a></p>

@@ -10,7 +10,7 @@ const initialState = {
 const updateProfileReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_PROFILE_REQUEST:
-            return { ...state, data: {}, loading: true };
+            return { ...state, data: action.payload.info, loading: true };
         case UPDATE_PROFILE_SUCCESS:
             return { ...state, data: action.payload.info, success: true, loading: false };
         case UPDATE_PROFILE_FAILURE:

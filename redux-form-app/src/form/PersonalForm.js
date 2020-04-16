@@ -43,15 +43,13 @@ const PersonalForm = props => {
                 </Field>
                 <label htmlFor="dateOfBirth">Birthday</label>
                 <Field name="dateOfBirth" component={InputField} type="date" validate={required} />
-                
+
                 {/* check erro and loading */}
-                {messageErr ? (<span className="alert-error">{messageErr}</span>) : null}
-                {loading ?
-                    <button className="btn btn-primary" disabled>
-                        <span className="spinner-border spinner-border-sm"></span>
-                Loading..
-                </button> : <button type="submit" className="btn btn-primary btn-next">Next</button>
-                }
+                <span className="alert-error">{messageErr ? messageErr : ""}</span>
+                <button type="submit" className="btn btn-primary btn-next">
+                    <span className={loading ? "spinner-border spinner-border-sm" : ""}></span>
+                    {loading ? "Loading..." : "Next"}
+                </button>
             </div>
         </form>
     )

@@ -9,28 +9,41 @@ const uploadImageUrl = "uploadImage";
 function* callUpdateProfile(action) {
     try {
         // change type data of file
-        let formData = new FormData();
+        const formData = new FormData();
         formData.append("file", action.payload.file);
-        formData.append("type", "AVATAR");
+        formData.set("type", "AVATAR");
         // post image
         let response_image;
+        console.log("i need a image", action.payload.file)
+        console.log("formData", formData)
+
         if (formData.file) {
+            console.log("response_image and nothing")
+
             response_image = yield call(apiUpload, uploadImageUrl, formData);
             if (_.get(response_image, "data.error")) {
-                yield put({ type: UPDATE_PROFILE_FAILURE })
+                yield put({ type: UPDATE_PROFILE_FAILURE, payload: { error: "Error with image" }})
             }
 
         }
         // add avatarId into info
+        console.log("response_image", response_image)
         let info = action.payload.info;
-        let avatarId =  _.get(response_image,"data.objectId");
-        if(avatarId){
-            info.avatarId =  avatarId
+        let avatarId = _.get(response_image, "data.objectId");
+        if (avatarId) {
+            info.avatarId = avatarId
         }
+        console.log("avatarId", avatarId)
         // post info
         const response_profile = yield call(apiWithToken, upateProfileUrl, info)
-        const data = _.get(response_profile, "data.result")
-        yield put({ type: UPDATE_PROFILE_SUCCESS, payload: {data} })
+        if (_.get(response_profile, "data.error")) {
+            yield put({ type: UPDATE_PROFILE_FAILURE, payload: { error: _.get(response_profile, "data.error") } })
+        }
+        else {
+            const data = _.get(response_profile, "data.result")
+            yield put({ type: UPDATE_PROFILE_SUCCESS, payload: { info: data } })
+            localStorage.setItem('token', data.sessionToken)
+        }
     }
     catch (err) {
         yield put({ type: UPDATE_PROFILE_FAILURE })

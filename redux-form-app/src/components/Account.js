@@ -16,12 +16,17 @@ class Account extends React.Component {
     }
     render() {
         const { data } = this.props.logInReducer;
+        const dataUpdate = _.get(this.props, "updateProfileReducer.data");
         let name;
         let avatarUrl;
         if (!_.isEmpty(data)) {
             name = data.firstName + " " + data.lastName;
             avatarUrl = data.avatarUrl ? data.avatarUrl : Image;
-        } else {
+        } else if (!_.isEmpty(dataUpdate)) {
+            name = dataUpdate.firstName + " " + dataUpdate.lastName;
+            avatarUrl = dataUpdate.avatarUrl ? dataUpdate.avatarUrl : Image;
+        }
+        else {
             name = localStorage.getItem('username')
             avatarUrl = Image;
         }
@@ -81,6 +86,9 @@ class Account extends React.Component {
 }
 
 const mapStatetoProps = (state) => {
-    return { logInReducer: state.logInReducer }
+    return {
+        logInReducer: state.logInReducer,
+        updateProfileReducer: state.updateProfileReducer
+    }
 }
 export default connect(mapStatetoProps, null)(withRouter(Account));
