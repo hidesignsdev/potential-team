@@ -26,7 +26,7 @@ class Congratulations extends React.Component {
             <div className="container">
                 <div className="form-field">
                     <div className="imgAccount ">
-                        <img src={avatarUrl} />
+                        <img src={avatarUrl} alt="" />
                     </div>
                     <center><h3>{"Congratulations!"}</h3></center>
                     <p>{"Your account has been created successfully"}</p>

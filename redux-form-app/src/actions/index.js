@@ -3,6 +3,9 @@ import * as constant from './constants'
 export const logIn = (data) => {
     return { type: constant.LOGIN_REQUEST, payload: { data } }
 }
+export const logout = () => {
+    return { type: constant.LOG_OUT }
+}
 export const signUp = (data) => {
     return { type: constant.SIGNUP_REQUEST, payload: { data } }
 }

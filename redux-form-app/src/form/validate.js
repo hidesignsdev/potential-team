@@ -1,4 +1,4 @@
-import moment from 'moment';
+//import moment from 'moment';
 
 export const required = value => value ? '' : 'Required'
 export const validateSignup = values => {

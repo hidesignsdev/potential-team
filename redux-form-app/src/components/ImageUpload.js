@@ -35,7 +35,7 @@ class ImageUpload extends React.Component {
             <div className="wrapper-image">
                 <div className="imgPreview ">
                     {loadingImage ? <div className="spinner-border text-light loading-style"></div> : null}
-                    {imagePreviewUrl ? <img src={imagePreviewUrl} /> :
+                    {imagePreviewUrl ? <img src={imagePreviewUrl} alt="" /> :
                         null}
                 </div>
                 <i onClick={() => {

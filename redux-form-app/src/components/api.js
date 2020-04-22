@@ -1,5 +1,5 @@
 import axios from "axios";
-import _ from "lodash";
+//import _ from "lodash";
 
 const baseUrl = 'https://api.korec-dev.scrum-dev.com/api/';
 

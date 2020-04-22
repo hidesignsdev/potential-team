@@ -7,14 +7,11 @@ import visibilityIcon from '../image/visibility.svg';
 import Image from '../image/iconReact.png';
 import arrowRight from '../image/arrow-right.svg';
 import { connect } from "react-redux";
+import { logout } from "../actions/index";
 import _ from "lodash";
 
 class Account extends React.Component {
-    signout = () => {
-        localStorage.removeItem('token')
-        localStorage.removeItem('username')
-        localStorage.removeItem('avatarUrl')
-    }
+
     render() {
         const { data } = this.props.logInReducer;
         const dataUpdate = _.get(this.props, "updateProfileReducer.data");
@@ -27,15 +24,11 @@ class Account extends React.Component {
             name = dataUpdate.firstName + " " + dataUpdate.lastName;
             avatarUrl = dataUpdate.avatarUrl ? dataUpdate.avatarUrl : Image;
         }
-        else {
-            name = localStorage.getItem('username')
-            avatarUrl = localStorage.getItem('avatarUrl');
-        }
         return (
             <div className="container">
                 <div className="form-field ">
-                    <div className="imgAccount ">
-                        <img src={avatarUrl} />
+                    <div className="imgAccount">
+                        <img src={avatarUrl} alt="" />
                     </div>
                     <center className="username"><h3><b>{name}</b></h3></center>
                     <div>
@@ -53,7 +46,7 @@ class Account extends React.Component {
                         <hr />
                     </div>
                     <div>
-                        <a href="/login" onClick={this.signout} className="sign-out">Sign Out</a>
+                        <a href="/login" onClick={this.props.signout} className="sign-out">Sign Out</a>
                     </div>
                     <table className="icon-table">
                         <thead>
@@ -94,4 +87,9 @@ const mapStatetoProps = (state) => {
         updateProfileReducer: state.updateProfileReducer
     }
 }
-export default connect(mapStatetoProps, null)(withRouter(Account));
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logout: () => dispatch(logout())
+    }
+}
+export default connect(mapStatetoProps, mapDispatchToProps)(withRouter(Account));

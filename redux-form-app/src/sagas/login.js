@@ -15,8 +15,6 @@ function* callLogin(action) {
             const data = _.get(response, "data.result")
             yield put({ type: LOGIN_SUCCESS, payload: { data } })
             localStorage.setItem('token',data.sessionToken)
-            localStorage.setItem('username',data.firstName + " " + data.lastName)
-            localStorage.setItem('avatarUrl',data.avatarUrl)
         }
     }
     catch (err) {
