@@ -1,39 +1,40 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+//import { Field, reduxForm } from 'redux-form';
 import Image from '../image/iconReact.png'
-import InputField from "./InputField";
-import { required } from "./validate";
+//import InputField from "./InputField";
+//import { required } from "./validate";
 
-
+import { Form, Field } from 'formik';
 
 const SignupForm = props => {
-    const { handleSubmit, loading, messageErr } = props;
+    const { loading, messageErr } = props;
     return (
-        <form onSubmit={handleSubmit}>
+        <Form>
             <div className="form-field">
                 <img className="square" src={Image} alt=""></img>
                 <label htmlFor="firstName">First Name</label>
-                <Field name="firstName" component={InputField} type="text" validate={required} />
+                <Field name="firstName" type="text" />
                 <label htmlFor="lastName">Last Name</label>
-                <Field name="lastName" component={InputField} type="text" validate={required} />
+                <Field name="lastName" type="text" />
                 <label htmlFor="email">Email</label>
-                <Field name="email" component={InputField} type="email" validate={required} />
+                <Field name="email" type="email" />
                 <label htmlFor="password">Password</label>
-                <Field name="password" component={InputField} type="password" />
+                <Field name="password" type="password" />
                 <label htmlFor="cfPassword">Confirm your password</label>
-                <Field name="cfPassword" component={InputField} type="password" />
-               {/* check erro and loading */}
-               <span className="alert-error">{messageErr ? messageErr : ""}</span>
+                <Field name="cfPassword" type="password" />
+                {/* check erro and loading */}
+                <span className="alert-error">{messageErr ? messageErr : ""}</span>
                 <button type="submit" className="btn btn-primary">
                     <span className={loading ? "spinner-border spinner-border-sm" : ""}></span>
                     {loading ? "Loading..." : "Sign Up"}
                 </button>
+                <div>
+                    <p>{"Already have account?"}<a href="/login">{"Sign in"}</a></p>
+                </div>
             </div>
-            <div>
-                <p>{"Already have account?"}<a href="/login">{"Sign in"}</a></p>
-            </div>
-        </form>
+
+        </Form>
     )
 }
 
-export default reduxForm({ form: 'signUp' })(SignupForm)
+export default SignupForm;

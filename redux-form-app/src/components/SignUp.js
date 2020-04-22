@@ -5,6 +5,7 @@ import { validateSignup } from "../form/validate";
 import _ from "lodash";
 import { signUp } from '../actions/index';
 import { connect } from "react-redux";
+import { Formik } from 'formik';
 
 class SignUp extends React.Component {
 
@@ -15,15 +16,24 @@ class SignUp extends React.Component {
         signUp(infor);
     }
     render() {
+        const initialValues = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            cfPassword: '',
+        }
         const { history } = this.props;
         const { success, error, loading } = this.props.signUpReducer;
         if (success === true) {
             history.push("/personal-info");
         }
         return (
-            <div className="container">
-                <SignupForm onSubmit={this.submit} validate={validateSignup} loading={loading} messageErr={error} />
-            </div>
+            <Formik
+                initialValues={initialValues}
+                onSubmit={this.submit}
+                render={props => <SignupForm{...props} />}
+            />
         );
     }
 }
