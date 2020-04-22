@@ -3,6 +3,7 @@ import LoginForm from '../form/LoginForm';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logIn } from "../actions/index";
+import { Formik } from 'formik';
 
 class Login extends React.Component {
     submit = values => {
@@ -10,15 +11,21 @@ class Login extends React.Component {
         logIn(values);
     }
     render() {
+        const initialValues = {
+            username: '',
+            password: ''
+        }
         const { history } = this.props;
         const { success, error, loading } = this.props.logInReducer;
         if (success === true) {
             history.push("/account")
         }
         return (
-            <div className="container">
-                <LoginForm onSubmit={this.submit} loading={loading} messageErr={error}/>
-            </div>
+            <Formik
+                initialValues={initialValues}
+                onSubmit={this.submit}
+                render={props => <LoginForm{...props} />}
+            />
         );
     }
 }
