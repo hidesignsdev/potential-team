@@ -1,17 +1,19 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { required } from "./validate";
-import InputField from "./InputField";
+//import { Field, reduxForm } from 'redux-form';
+//import { required } from "./validate";
+//import InputField from "./InputField";
 import ImageUpload from "../components/ImageUpload";
+
+import { Form, Field } from 'formik';
 
 const PersonalForm = props => {
     const { handleSubmit, loading, messageErr } = props;
     return (
-        <form onSubmit={handleSubmit} id="updateForm">
+        <Form>
             <div className="form-field">
                 <div className="process">
-                    <p>Some final step to finish your registration</p>
                     <center>
+                        <p>Some final step to finish your registration</p>
                         <table>
                             <thead>
                                 <tr>
@@ -42,7 +44,7 @@ const PersonalForm = props => {
                     <option value="その他">その他</option>
                 </Field>
                 <label htmlFor="dateOfBirth">Birthday</label>
-                <Field name="dateOfBirth" component={InputField} type="date" validate={required} />
+                <Field name="dateOfBirth" type="date" />
 
                 {/* check erro and loading */}
                 <span className="alert-error">{messageErr ? messageErr : ""}</span>
@@ -51,7 +53,7 @@ const PersonalForm = props => {
                     {loading ? "Loading..." : "Next"}
                 </button>
             </div>
-        </form>
+        </Form>
     )
 }
-export default reduxForm({ form: 'personalInfo' })(PersonalForm)
+export default PersonalForm;

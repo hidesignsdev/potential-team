@@ -5,7 +5,6 @@ import signUpReducer from './signupReducer';
 import updateProfileReducer from './updateProfileReducer';
 
 const rootReducer = combineReducers({
-    form: formReducer,
     logInReducer,
     signUpReducer,
     updateProfileReducer

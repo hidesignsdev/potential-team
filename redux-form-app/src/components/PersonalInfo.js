@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { updateProfile } from "../actions/index";
 import _ from "lodash";
 import moment from "moment";
+import { Formik } from 'formik';
 
 class PersonalInfo extends React.Component {
     submit = values => {
@@ -15,15 +16,22 @@ class PersonalInfo extends React.Component {
         updateProfile(info, values.file);
     }
     render() {
+        const initialValues = {
+            file: '',
+            gender: '',
+            dateOfBirth: '',
+        }
         const { history } = this.props;
         const { success, error, loading } = this.props.updateProfileReducer;
         if (success === true) {
             history.push("/congratulations");
         }
         return (
-            <div className="container">
-                <PersonalForm onSubmit={this.submit} loading={loading} messageErr={error} />
-            </div>
+            <Formik
+                initialValues={initialValues}
+                onSubmit={this.submit}
+                render={props => <PersonalForm {...props} />}
+            />
 
         );
     }

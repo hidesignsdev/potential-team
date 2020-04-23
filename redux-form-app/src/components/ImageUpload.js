@@ -10,7 +10,7 @@ class ImageUpload extends React.Component {
         };
     }
     handleImageChange(item) {
-        const { input: { onChange } } = this.props;
+        const { form: { setFieldValue } } = this.props;
         item.preventDefault();
         let reader = new FileReader();
         let file = item.target.files[0];
@@ -24,10 +24,12 @@ class ImageUpload extends React.Component {
                 loadingImage: false
             });
         }
-        if (file) {
-            reader.readAsDataURL(file);
-            onChange && onChange(file)
-        }
+        // if (file) {
+        //     reader.readAsDataURL(file);
+        //     onChange && onChange(file)
+        // }
+        reader.readAsDataURL(file);
+        setFieldValue('file', file)
     }
     render() {
         let { imagePreviewUrl, loadingImage } = this.state;
