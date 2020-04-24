@@ -3,11 +3,6 @@ import _ from 'lodash';
 export const required = value => value ? '' : 'Required'
 export const validateSignup = values => {
   const errors = {};
-  if (!values.email) {
-    errors.email = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  }
   if (!values.password) {
     errors.password = 'Required';
   }
@@ -22,3 +17,11 @@ export const validateSignup = values => {
   return errors;
 };
 export const validateGender = value => !_.isEmpty(value) ? '' : 'Required'
+export const validateEmail = values => {
+  if (!values) {
+    return 'Required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
+    return 'Invalid email address';
+  }
+  return ''
+}

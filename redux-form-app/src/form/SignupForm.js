@@ -2,7 +2,7 @@ import React from 'react';
 //import { Field, reduxForm } from 'redux-form';
 import Image from '../image/iconReact.png'
 import InputField from "./InputField";
-import { required, validateSignup } from "./validate";
+import { required, validateEmail } from "./validate";
 
 import { Form, Field } from 'formik';
 
@@ -18,7 +18,7 @@ const SignupForm = props => {
                 <label htmlFor="lastName">Last Name</label>
                 <Field name="lastName" component={InputField} validate={required}/>
                 <label htmlFor="email">Email</label>
-                <Field name="email" type="email" component={InputField}/>
+                <Field name="email" type="email" component={InputField} validate={validateEmail}/>
                 <label htmlFor="password">Password</label>
                 <Field name="password" type="password" component={InputField}/>
                 <label htmlFor="cfPassword">Confirm your password</label>

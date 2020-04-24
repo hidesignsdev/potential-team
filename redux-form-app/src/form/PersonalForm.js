@@ -1,5 +1,4 @@
 import React from 'react';
-//import { Field, reduxForm } from 'redux-form';
 import { required, validateGender } from "./validate";
 import InputField from "./InputField";
 import ImageUpload from "../components/ImageUpload";

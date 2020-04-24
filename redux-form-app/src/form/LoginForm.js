@@ -1,8 +1,7 @@
 import React from 'react';
-//import { Field, reduxForm } from 'redux-form';
 import Image from '../image/iconReact.png'
-//import { required } from "./validate";
-//import InputField from "./InputField";
+import { required, validateEmail } from "./validate";
+import InputField from "./InputField";
 
 import { Form, Field } from 'formik';
 
@@ -14,12 +13,12 @@ const LoginForm = props => {
             <div className="form-field">
                 <img className="square" src={Image} alt=""></img>
                 <label htmlFor="username">Email</label>
-                <Field name="username" type="email" />
+                <Field name="username" type="email" component={InputField} validate={validateEmail} />
                 <label htmlFor="password">Password
                 <a className="fg-pass" href="/sign-up">Forgot password?
                 </a>
                 </label>
-                <Field name="password" type="password" />
+                <Field name="password" type="password" component={InputField} validate={required} />
                 {/* check erro and loading */}
                 <span className="alert-error">{messageErr ? messageErr : ""}</span>
                 <button type="submit" className="btn btn-primary">

@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logIn } from "../actions/index";
 import { Formik } from 'formik';
+import _ from "lodash";
 
 class Login extends React.Component {
     submit = values => {
@@ -16,7 +17,7 @@ class Login extends React.Component {
             password: ''
         }
         const { history } = this.props;
-        const { success, error, loading } = this.props.logInReducer;
+        const { success } = this.props.logInReducer;
         if (success === true) {
             history.push("/account")
         }
@@ -24,7 +25,7 @@ class Login extends React.Component {
             <Formik
                 initialValues={initialValues}
                 onSubmit={this.submit}
-                render={props => <LoginForm{...props} />}
+                render={props => <LoginForm{...props}  messageErr = {_.get(this.props,"logInReducer.error")}/>}
             />
         );
     }

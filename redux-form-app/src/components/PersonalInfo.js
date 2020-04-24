@@ -30,7 +30,7 @@ class PersonalInfo extends React.Component {
             <Formik
                 initialValues={initialValues}
                 onSubmit={this.submit}
-                render={props => <PersonalForm {...props}  messageErr = {_.get(this.props,"signUpReducer.error")}/>}
+                render={props => <PersonalForm {...props}  messageErr = {_.get(this.props,"updateProfileReducer.error")}/>}
             />
 
         );
