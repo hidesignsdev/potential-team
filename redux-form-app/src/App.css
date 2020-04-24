@@ -1,0 +1,165 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  flex-direction: column;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  border: 1px solid #ccc;
+  font-size: 14px;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+button {
+  margin-top: 10px;
+}
+label {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.forgot-password {
+  font-size: 12px;
+  text-align: right;
+}
+form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.more-info {
+  margin-left: 40px;
+}
+.sign-out {
+  color: red;
+}
+
+.square {
+  height: auto;
+  width: 100px;
+  align-self: center;
+  margin-bottom: 50px;
+}
+.round {
+  height: auto;
+  width: 100px;
+  align-self: center;
+  border-radius: 35%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.icon-table {
+  font-size: 10px;
+  margin-top: 200px;
+}
+.between-its {
+  padding-left: 20px;
+}
+.rectangle {
+  height: 5px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: #555;
+}
+
+.btn-view {
+  background-color: white;
+  width: 100%;
+  text-align: left;
+}
+.btn-change {
+  background-color: white;
+  width: 100%;
+  text-align: left;
+}
+.username {
+  padding-bottom: 50px;
+}
+.arrow {
+  float: right;
+}
+.fg-pass {
+  padding-left: 55px;
+  font-size: 12px;
+}
+.active {
+  background-color: mediumaquamarine;
+}
+.btn-next {
+  margin-top: 100px;
+}
+.btn-ok {
+  margin-top: 250px;
+}
+.btn-korec {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  display: inline-block;
+}
+.alert-error {
+  color: red;
+  height: 24px;
+}
+.imgPreview {
+  position: relative;
+  text-align: center;
+  height: 150px;
+  width: 150px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.imgPreview > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.loading-style {
+  position: absolute;
+}
+.wrapper-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.icon-style {
+  position: absolute;
+  right: 70px;
+  bottom: 0px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.imgAccount{
+  height: 100px;
+  width: 100px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: 100px;
+}
+.imgAccount > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
