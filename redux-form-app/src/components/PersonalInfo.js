@@ -22,7 +22,7 @@ class PersonalInfo extends React.Component {
             dateOfBirth: '',
         }
         const { history } = this.props;
-        const { success, error, loading } = this.props.updateProfileReducer;
+        const { success } = this.props.updateProfileReducer;
         if (success === true) {
             history.push("/congratulations");
         }
@@ -30,7 +30,7 @@ class PersonalInfo extends React.Component {
             <Formik
                 initialValues={initialValues}
                 onSubmit={this.submit}
-                render={props => <PersonalForm {...props} />}
+                render={props => <PersonalForm {...props}  messageErr = {_.get(this.props,"signUpReducer.error")}/>}
             />
 
         );

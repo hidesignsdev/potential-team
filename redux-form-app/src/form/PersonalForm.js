@@ -1,15 +1,15 @@
 import React from 'react';
 //import { Field, reduxForm } from 'redux-form';
-//import { required } from "./validate";
-//import InputField from "./InputField";
+import { required, validateGender } from "./validate";
+import InputField from "./InputField";
 import ImageUpload from "../components/ImageUpload";
 
-import { Form, Field } from 'formik';
+import { Form, Field, ErrorMessage } from 'formik';
 
 const PersonalForm = props => {
-    const { handleSubmit, loading, messageErr } = props;
+    const { loading, messageErr } = props;
     return (
-        <Form>
+        <Form className="container">
             <div className="form-field">
                 <div className="process">
                     <center>
@@ -37,14 +37,20 @@ const PersonalForm = props => {
                 <center><h3>Personal Information</h3></center>
                 <Field name="file" component={ImageUpload} />
                 <label htmlFor="gender">Gender</label>
-                <Field name="gender" component="select">
+                <Field name="gender" component="select" validate={validateGender}>
                     <option value="">Select your gender...</option>
                     <option value="男性">男性</option>
                     <option value="女性">女性</option>
                     <option value="その他">その他</option>
                 </Field>
+                {props.errors.gender ? 
+                <div className="alert-error">
+                    <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    <ErrorMessage name="gender" />
+                </div>
+                : null}
                 <label htmlFor="dateOfBirth">Birthday</label>
-                <Field name="dateOfBirth" type="date" />
+                <Field name="dateOfBirth" type="date" component={InputField} validate={required} />
 
                 {/* check erro and loading */}
                 <span className="alert-error">{messageErr ? messageErr : ""}</span>

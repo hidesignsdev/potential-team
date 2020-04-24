@@ -10,7 +10,7 @@ import { Form, Field } from 'formik';
 const LoginForm = props => {
     const { loading, messageErr } = props;
     return (
-        <Form >
+        <Form className="container">
             <div className="form-field">
                 <img className="square" src={Image} alt=""></img>
                 <label htmlFor="username">Email</label>
