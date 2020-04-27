@@ -4,7 +4,6 @@ import Timer from "./Timer";
 function App() {
   
   return (
-          rel="noopener noreferrer"
     <div className="container">
       <Timer/>
     </div>
