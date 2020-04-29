@@ -1,5 +1,4 @@
 import React from "react";
-//import HelloForm from '../form/HelloForm';
 import { withRouter } from "react-router-dom";
 
 class Hello extends React.Component {

@@ -10,12 +10,16 @@ class ImageUpload extends React.Component {
         };
     }
     handleImageChange(item) {
-        const { form: { setFieldValue } } = this.props;
+        const {
+            form: { setFieldValue }
+        } = this.props;
         item.preventDefault();
         let reader = new FileReader();
         let file = item.target.files[0];
         reader.onloadstart = () => {
-            this.setState({ loadingImage: true })
+            this.setState({
+                loadingImage: true
+            })
         }
         reader.onloadend = () => {
             this.setState({
@@ -24,12 +28,13 @@ class ImageUpload extends React.Component {
                 loadingImage: false
             });
         }
-        // if (file) {
-        //     reader.readAsDataURL(file);
-        //     onChange && onChange(file)
-        // }
-        reader.readAsDataURL(file);
-        setFieldValue('file', file)
+        if (file) {
+            reader.readAsDataURL(file);
+            setFieldValue('file', file)
+            //     reader.readAsDataURL(file);
+            //     onChange && onChange(file)
+        }
+
     }
     render() {
         let { imagePreviewUrl, loadingImage } = this.state;
@@ -37,8 +42,7 @@ class ImageUpload extends React.Component {
             <div className="wrapper-image">
                 <div className="imgPreview ">
                     {loadingImage ? <div className="spinner-border text-light loading-style"></div> : null}
-                    {imagePreviewUrl ? <img src={imagePreviewUrl} alt="" /> :
-                        null}
+                    {imagePreviewUrl ? <img src={imagePreviewUrl} alt="" /> : null}
                 </div>
                 <i onClick={() => {
                     this.inputImg.click()

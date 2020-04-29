@@ -30,45 +30,50 @@ class Account extends React.Component {
                     <div className="imgAccount">
                         <img src={avatarUrl} alt="" />
                     </div>
-                    <center className="username"><h3><b>{name}</b></h3></center>
+                    <center className="username">
+                        <h3><b>{name}</b></h3>
+                        </center>
                     <div>
                         <p className="btn-view">View profile
-                    <img className="arrow" src={arrowRight} alt="">
-                            </img>
+                    <img className="arrow" src={arrowRight} alt=""/>
+                            
                         </p>
                         <hr />
                     </div>
                     <div>
                         <p className="btn-change">Change Password
-                    <img className="arrow" src={arrowRight} alt="">
-                            </img>
+                    <img className="arrow" src={arrowRight} alt=""/>
+                           
                         </p>
                         <hr />
                     </div>
                     <div>
-                        <a href="/login" onClick={this.props.signout} className="sign-out">Sign Out</a>
+                        <a href="/login" onClick={this.props.signout} className="sign-out">{"Sign Out"}</a>
                     </div>
                     <table className="icon-table">
                         <thead>
                             <tr>
                                 <td>
-                                    <center><img src={houseIcon} alt=""></img>
+                                    <center>
+                                        <img src={houseIcon} alt=""/>
                                         <p>Home</p>
                                     </center>
                                 </td>
                                 <td className="between-its">
-                                    <center><img src={visibilityIcon} alt=""></img>
+                                    <center>
+                                        <img src={visibilityIcon} alt=""/>
                                         <p>Followed Companies</p>
                                     </center>
                                 </td>
                                 <td className="between-its">
-                                    <center><img src={notificationIcon} alt=""></img>
+                                    <center>
+                                        <img src={notificationIcon} alt=""/>
                                         <p>Notification</p>
                                     </center>
                                 </td>
                                 <td className="between-its">
                                     <center>
-                                        <img src={personIcon} alt=""></img>
+                                        <img src={personIcon} alt=""/>
                                         <p>Account</p>
                                     </center>
                                 </td>
@@ -81,7 +86,7 @@ class Account extends React.Component {
     }
 }
 
-const mapStatetoProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         logInReducer: state.logInReducer,
         updateProfileReducer: state.updateProfileReducer
@@ -92,4 +97,4 @@ const mapDispatchToProps = (dispatch) => {
         logout: () => dispatch(logout())
     }
 }
-export default connect(mapStatetoProps, mapDispatchToProps)(withRouter(Account));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Account));
