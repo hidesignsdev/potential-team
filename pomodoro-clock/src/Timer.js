@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import "./App.css";
+import beep from './BeepSound.wav';
 const SESSION = 'Keep Working';
 const BREAK = 'Take a break!';
 
@@ -10,6 +11,8 @@ function Timer() {
     const [timerRunning, setTimerRunning] = useState(false);
     const [timerLabel, setTimerLabel] = useState(SESSION);
     const [buttonLabel, setButtonLabel] = useState('Start');
+    const [audio, setAudio] = useState(null);
+
     // const myAudio = useRef();
     // const context = new AudioContext();
     const incrementSession = () => {
@@ -35,6 +38,10 @@ function Timer() {
         }
 
     }
+
+    useEffect(() => {
+        setAudio(document.getElementById('beep'))
+    }, [])
 
     useEffect(() => {
         const handleSwitch = () => {
@@ -66,6 +73,7 @@ function Timer() {
 
     const handleStart = () => {
         // AudioContext.resume();
+        audio.play()
         setTimerRunning(true);
         setButtonLabel('Pause');
     }
@@ -80,7 +88,9 @@ function Timer() {
         setTimerLabel(SESSION);
         setTimerRunning(false);
         // myAudio.current.pause();
+        audio.pause()
         // myAudio.current.currentTime = 0;
+        audio.currentTime = 0
     }
     let minutes = Math.floor(secondsLeft / 60);
     let seconds = secondsLeft % 60;
@@ -111,7 +121,7 @@ function Timer() {
                     <button id="break-decrement" className="btn-settings" onClick={decrementBreak}>-</button>
                 </div>
             </div>
-            <audio id="beep" src="" type="audio"></audio>
+            <audio id="beep" src={beep} preload='auto'></audio>
         </div>
     );
 }
