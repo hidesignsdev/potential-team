@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import "./App.css";
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import PersonalInfo from './components/PersonalInfo';
-import Account from './components/Account';
-import Congratulations from './components/Congratulations';
+import Login from './containers/Login';
+import SignUp from './containers/SignUp';
+import PersonalInfo from './containers/PersonalInfo';
+import Account from './containers/Account';
+import Congratulations from './containers/Congratulations';
 import { Router, Switch, Route } from "react-router-dom";
 import history from "./helpers/History"
-import Hello from './components/Hello';
+import Hello from './containers/Hello';
 
 export default class App extends Component {
   render() {

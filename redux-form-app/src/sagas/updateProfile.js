@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { apiUpload, apiWithToken } from "../components/api";
+import { apiUpload, apiWithToken } from "../helpers/api";
 import _ from "lodash";
 import { UPDATE_PROFILE_REQUEST, UPDATE_PROFILE_FAILURE, UPDATE_PROFILE_SUCCESS } from '../actions/constants';
 

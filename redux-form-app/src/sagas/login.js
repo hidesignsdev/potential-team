@@ -1,6 +1,6 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE} from "../actions/constants";
-import {apiFunction} from "../components/api";
+import {apiFunction} from "../helpers/api";
 import _ from "lodash";
 
 const loginUrl = "login";

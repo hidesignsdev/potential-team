@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { apiFunction } from "../components/api";
+import { apiFunction } from "../helpers/api";
 import _ from "lodash";
 import { SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../actions/constants';
 
